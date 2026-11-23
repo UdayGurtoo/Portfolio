@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/fx", "destination": "/api/fx.js" },
+    { "source": "/api/quotes", "destination": "/api/quotes.js" }
+  ]
+}
