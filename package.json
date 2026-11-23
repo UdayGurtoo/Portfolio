@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Portfolio Screener & Live Equity Tracker",
   "scripts": {
+    "build": "echo Build completed",
     "start": "node server.js"
   },
   "keywords": [],
