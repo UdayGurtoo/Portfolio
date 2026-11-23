@@ -1,4 +1,4 @@
-const STORAGE_KEY = "portfolio_screener_holdings_v4";
+const STORAGE_KEY = "portfolio_screener_holdings_v5";
 
 const DEFAULT_HOLDINGS = [
   // Portfolio 1: Indian Primary (Upstox 7MALEK - Urvashi Gurtoo)
@@ -15,7 +15,7 @@ const DEFAULT_HOLDINGS = [
   { portfolio: "P1", name: "DSPBLACK ETSF DP GR", symbol: "INF740K01OK1", type: "Mutual Fund", qty: 1369.88, avgBuy: 151.83, cmp: 166.39, date: "SIP" },
   { portfolio: "P1", name: "HDFC BANK-EQ1/-", symbol: "INE040A01034", type: "Equity", qty: 68, avgBuy: 752.06, cmp: 845.25, date: "2025-02-03" },
   { portfolio: "P1", name: "HDFC MCF D-GROW", symbol: "INF179KC1BS5", type: "Mutual Fund", qty: 1465.84, avgBuy: 20.47, cmp: 20.27, date: "2024-09-03" },
-  { portfolio: "P1", name: "ICICI NIFTY BANK ETF", symbol: "INF109KC15I8", type: "ETF", qty: 383, avgBuy: 56.37, cmp: 66.26, date: "2025-10-27" },
+  { portfolio: "P1", name: "ICICI NIFTY BANK ETF", symbol: "INF109KC15I8", type: "ETF", qty: 383, avgBuy: 56.37, cmp: 64.40, date: "2025-10-27" },
   { portfolio: "P1", name: "INFOSYS LTD-EQ 5/-", symbol: "INE009A01021", type: "Equity", qty: 24, avgBuy: 990.00, cmp: 1096.40, date: "2026-09-29" },
   { portfolio: "P1", name: "KOTAK MAHINDRA-EQ1/-", symbol: "INE237A01036", type: "Equity", qty: 206, avgBuy: 384.57, cmp: 516.00, date: "2026-01-14" },
   { portfolio: "P1", name: "KOTAK NIF IT ETF", symbol: "INF174KA1GC5", type: "ETF", qty: 980, avgBuy: 38.70, cmp: 34.81, date: "2025-10-10" },
@@ -36,8 +36,8 @@ const DEFAULT_HOLDINGS = [
   { portfolio: "P2", name: "EDELW FLEXCF D-GROW", symbol: "INF843K01KK1", type: "Mutual Fund", qty: 2003.45, avgBuy: 43.92, cmp: 47.79, date: "2026-03-10" },
   { portfolio: "P2", name: "HDFC FCF D-GROWTH", symbol: "INF179K01UT0", type: "Mutual Fund", qty: 36.72, avgBuy: 2042.41, cmp: 2427.51, date: "SIP" },
   { portfolio: "P2", name: "HDFC MCF D-GROW", symbol: "INF179KC1BS5", type: "Mutual Fund", qty: 2443.07, avgBuy: 20.47, cmp: 20.27, date: "2024-09-03" },
-  { portfolio: "P2", name: "ICICI NIFTY 100 ETF", symbol: "INF109KC16V9", type: "ETF", qty: 2050, avgBuy: 26.30, cmp: 29.71, date: "2025-01-13" },
-  { portfolio: "P2", name: "ICICI NIFTY BANK ETF", symbol: "INF109KC15I8", type: "ETF", qty: 194, avgBuy: 59.35, cmp: 66.26, date: "2025-10-27" },
+  { portfolio: "P2", name: "ICICI NIFTY 100 ETF", symbol: "INF109KC16V9", type: "ETF", qty: 2050, avgBuy: 26.30, cmp: 29.30, date: "2025-01-13" },
+  { portfolio: "P2", name: "ICICI NIFTY BANK ETF", symbol: "INF109KC15I8", type: "ETF", qty: 194, avgBuy: 59.35, cmp: 64.40, date: "2025-10-27" },
   { portfolio: "P2", name: "INFOSYS LTD-EQ 5/-", symbol: "INE009A01021", type: "Equity", qty: 21, avgBuy: 1153.50, cmp: 1096.40, date: "2026-04-24" },
   { portfolio: "P2", name: "INOX WIND- EQ", symbol: "INE066P01011", type: "Equity", qty: 67, avgBuy: 147.00, cmp: 55.80, date: "2025-09-08" },
   { portfolio: "P2", name: "KOTAK MAHINDRA-EQ1/-", symbol: "INE237A01036", type: "Equity", qty: 25, avgBuy: 380.00, cmp: 516.00, date: "2026-01-14" },
@@ -424,14 +424,12 @@ const TICKER_MAP = {
   "BANK OF BARODA-EQ": "BANKBARODA.NS",
   "INE596I01020": "CAMS.NS",
   "COMPUTER AGE-EQ2/-": "CAMS.NS",
-  "INF740KA1WU9": "DSP500EQ.NS",
-  "DSP N500FQ30 ETF": "DSP500EQ.NS",
   "INE040A01034": "HDFCBANK.NS",
   "HDFC BANK-EQ1/-": "HDFCBANK.NS",
-  "INF109KC15I8": "BANKETF.NS",
-  "ICICI NIFTY BANK ETF": "BANKETF.NS",
-  "INF109KC16V9": "ICICIN50.NS",
-  "ICICI NIFTY 100 ETF": "ICICIN50.NS",
+  "INF109KC15I8": "BANKIETF.NS",
+  "ICICI NIFTY BANK ETF": "BANKIETF.NS",
+  "INF109KC16V9": "NIF100IETF.NS",
+  "ICICI NIFTY 100 ETF": "NIF100IETF.NS",
   "INE009A01021": "INFY.NS",
   "INFOSYS LTD-EQ 5/-": "INFY.NS",
   "INE237A01036": "KOTAKBANK.NS",
@@ -460,8 +458,6 @@ const TICKER_MAP = {
   "INOX WIND- EQ": "INOXWIND.NS",
   "INE670K01029": "LODHA.NS",
   "LODHA DEVELOP-EQ10/-": "LODHA.NS",
-  "INF200K01RP8": "GOLDBEES.NS",
-  "SBI GOLD DP GR": "GOLDBEES.NS",
   "INE299N01021": "WAAREERTL.NS",
   "WAAREE RENEW-EQ2/-": "WAAREERTL.NS"
 };
@@ -586,6 +582,11 @@ async function syncRealTimeQuotes(isManual = false) {
         const ticker = TICKER_MAP[h.symbol] || TICKER_MAP[h.name] || h.symbol;
         const q = quotes[ticker] || quotes[h.symbol] || quotes[h.name];
         if (q && q.price && !isNaN(q.price) && q.price > 0) {
+          // Safety guard: reject quotes that wildly deviate from avgBuy (e.g. wrong ticker scale or corrupt feed)
+          if (h.avgBuy > 0) {
+            const ratio = q.price / h.avgBuy;
+            if (ratio > 3.0 || ratio < 0.25) return;
+          }
           const oldCmp = h.cmp;
           const newCmp = Number(q.price.toFixed(2));
           if (newCmp !== oldCmp) {
