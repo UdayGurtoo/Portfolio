@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Screener &amp; Live Equity Tracker</title>
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <script>
+    // Prevent theme flicker on page load
+    (function() {
+      const savedTheme = localStorage.getItem("portfolio_screener_theme");
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo">PS</div>
+      <div>
+        <h1>PortfolioScreener<span class="badge-live" id="liveBadge">LIVE</span></h1>
+        <p class="subtitle">Multi-Portfolio Equity &amp; Mutual Fund Tracker &bull; Indian &amp; US Markets</p>
+      </div>
+    </div>
+
+    <div class="topbar-controls">
+      <div class="fx-box" title="Real-time USD/INR Exchange Rate (Auto-synced)">
+        <label for="fxInput">USD/INR</label>
+        <input type="number" id="fxInput" step="0.05" value="92.75" />
+        <span class="badge-live-mini" id="fxLiveBadge" title="Live exchange rate feed active">LIVE</span>
+      </div>
+      <button id="syncRealTimeBtn" class="btn btn-outline" title="Sync live market quotes & FX rates">
+        <span id="syncIcon">🔄</span> <span id="syncLabel">Sync Real-Time</span>
+      </button>
+      <button id="toggleSimBtn" class="btn btn-outline" title="Toggle live market updates">
+        <span class="dot" id="liveDot"></span> <span id="liveBtnText">Live Feed: ON</span>
+      </button>
+      <button id="themeToggleBtn" class="theme-toggle-switch" title="Toggle Night / Day Mode" aria-label="Toggle Night Mode">
+        <span class="theme-switch-icon" id="themeIcon">🌙</span>
+        <span class="theme-switch-text" id="themeLabel">Night Mode</span>
+      </button>
+      <button id="addHoldingBtn" class="btn btn-primary">+ Add Holding</button>
+      <button id="exportCsvBtn" class="btn btn-outline">Export CSV</button>
+      <button id="resetDataBtn" class="btn btn-ghost" title="Reset to original baseline data">Reset</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Consolidated KPI Strip -->
+    <section class="kpi-grid" id="kpiGrid">
+      <div class="kpi-card">
+        <span class="kpi-label">Total Current Value (INR)</span>
+        <div class="kpi-value" id="kpiTotalVal">₹0.00</div>
+        <span class="kpi-sub" id="kpiInvestedSub">Invested: ₹0.00</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Total Unrealized P&amp;L</span>
+        <div class="kpi-value" id="kpiUnrealizedPnl">₹0.00</div>
+        <span class="kpi-sub" id="kpiUnrealizedPct">0.00%</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Realized Profits (Closed)</span>
+        <div class="kpi-value pos" id="kpiRealizedPnl">+₹12,672.28</div>
+        <span class="kpi-sub">5 Closed Trades (P1 &amp; P2)</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Net Overall Return</span>
+        <div class="kpi-value" id="kpiNetPnl">₹0.00</div>
+        <span class="kpi-sub" id="kpiNetPct">Unrealized + Realized</span>
+      </div>
+    </section>
+
+    <!-- Charts & Movers Row -->
+    <section class="analytics-grid">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Portfolio &amp; Asset Allocation</h2>
+          <div class="pill-switch" id="chartModeSwitch">
+            <button class="pill active" data-mode="portfolio">By Account</button>
+            <button class="pill" data-mode="asset">By Asset Class</button>
+          </div>
+        </div>
+        <div class="allocation-body">
+          <div id="donutChartContainer" class="donut-wrap"></div>
+          <div id="allocationLegend" class="legend-list"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Top Gainers &amp; Losers (Unrealized %)</h2>
+          <span class="muted-text" id="lastUpdatedText">Updated just now</span>
+        </div>
+        <div class="movers-split">
+          <div>
+            <h3 class="mini-head pos">Top Performers</h3>
+            <ul id="topGainersList" class="mover-list"></ul>
+          </div>
+          <div>
+            <h3 class="mini-head neg">Laggards</h3>
+            <ul id="topLosersList" class="mover-list"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screener Tabs & Filter Bar -->
+    <section class="panel screener-panel">
+      <div class="tabs-bar">
+        <div class="tabs" id="portfolioTabs">
+          <button class="tab active" data-tab="ALL">All Holdings (<span id="countALL">0</span>)</button>
+          <button class="tab" data-tab="P1">India Primary &bull; 7MALEK (<span id="countP1">0</span>)</button>
+          <button class="tab" data-tab="P2">India Secondary &bull; 7UAQA9 (<span id="countP2">0</span>)</button>
+          <button class="tab" data-tab="P3">US Equities &bull; INDmoney (<span id="countP3">0</span>)</button>
+          <button class="tab" data-tab="REALIZED">Realized Profits (5)</button>
+        </div>
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <div class="search-wrap">
+          <input type="text" id="searchInput" placeholder="Search stock, ETF, mutual fund, or ISIN/ticker..." />
+        </div>
+        <select id="assetFilter">
+          <option value="ALL">All Asset Types</option>
+          <option value="Equity">Direct Equity</option>
+          <option value="ETF">ETF</option>
+          <option value="Mutual Fund">Mutual Fund</option>
+          <option value="Gold">Gold / Gold ETF</option>
+        </select>
+        <select id="pnlFilter">
+          <option value="ALL">All P&amp;L Status</option>
+          <option value="PROFIT">In Profit (&gt; 0%)</option>
+          <option value="LOSS">In Loss (&lt; 0%)</option>
+          <option value="MOVER3">Big Movers (&plusmn;15%)</option>
+        </select>
+        <select id="sortSelect">
+          <option value="val_desc">Sort: Current Value (High &rarr; Low)</option>
+          <option value="pnl_pct_desc">Sort: Return % (High &rarr; Low)</option>
+          <option value="pnl_pct_asc">Sort: Return % (Low &rarr; High)</option>
+          <option value="pnl_abs_desc">Sort: Unrealized P&amp;L (High &rarr; Low)</option>
+          <option value="name_asc">Sort: Name (A &rarr; Z)</option>
+        </select>
+      </div>
+
+      <!-- Active Holdings Table -->
+      <div class="table-responsive" id="holdingsTableWrap">
+        <table class="screener-table">
+          <thead>
+            <tr>
+              <th>Instrument / Ticker</th>
+              <th>Portfolio</th>
+              <th>Type</th>
+              <th class="num">Qty</th>
+              <th class="num">Avg Buy</th>
+              <th class="num">CMP (Live)</th>
+              <th class="num">Invested</th>
+              <th class="num">Current Value</th>
+              <th class="num">Unrealized P&amp;L</th>
+              <th class="num">Return %</th>
+              <th class="center">Action</th>
+            </tr>
+          </thead>
+          <tbody id="holdingsTbody"></tbody>
+          <tfoot id="holdingsTfoot"></tfoot>
+        </table>
+      </div>
+
+      <!-- Realized Profits Table -->
+      <div class="table-responsive hidden" id="realizedTableWrap">
+        <table class="screener-table">
+          <thead>
+            <tr>
+              <th>Company / Fund</th>
+              <th>Portfolio</th>
+              <th>Sell Date</th>
+              <th class="num">Units Sold</th>
+              <th class="num">Avg Buy (₹)</th>
+              <th class="num">Sell Price (₹)</th>
+              <th class="num">Buy Cost (₹)</th>
+              <th class="num">Sell Value (₹)</th>
+              <th class="num">Realized P&amp;L (₹)</th>
+              <th class="num">Return %</th>
+            </tr>
+          </thead>
+          <tbody id="realizedTbody"></tbody>
+          <tfoot id="realizedTfoot"></tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Add / Edit Holding Modal -->
+  <div class="modal-backdrop hidden" id="holdingModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add New Holding</h3>
+        <button class="close-btn" id="closeModalBtn">&times;</button>
+      </div>
+      <form id="holdingForm">
+        <input type="hidden" id="editIndex" value="-1" />
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fPortfolio">Portfolio</label>
+            <select id="fPortfolio" required>
+              <option value="P1">India Primary (7MALEK - Urvashi)</option>
+              <option value="P2">India Secondary (7UAQA9 - Veena)</option>
+              <option value="P3">US Equities (INDmoney Global)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fType">Asset Class</label>
+            <select id="fType" required>
+              <option value="Equity">Direct Equity</option>
+              <option value="ETF">ETF</option>
+              <option value="Mutual Fund">Mutual Fund</option>
+              <option value="Gold">Gold / Gold ETF</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fName">Stock / Fund Name</label>
+            <input type="text" id="fName" placeholder="e.g. TATAGOLD ETF" required />
+          </div>
+          <div class="form-group">
+            <label for="fSymbol">Ticker / ISIN</label>
+            <input type="text" id="fSymbol" placeholder="e.g. INF277KA1976" required />
+          </div>
+          <div class="form-group">
+            <label for="fQty">Quantity / Units</label>
+            <input type="number" id="fQty" step="any" placeholder="e.g. 10675" required />
+          </div>
+          <div class="form-group">
+            <label for="fBuy">Avg Buy Price (₹ or $)</label>
+            <input type="number" id="fBuy" step="any" placeholder="e.g. 12.18" required />
+          </div>
+          <div class="form-group">
+            <label for="fCmp">Current Market Price (CMP)</label>
+            <input type="number" id="fCmp" step="any" placeholder="e.g. 12.12" required />
+          </div>
+          <div class="form-group">
+            <label for="fDate">Buy Date</label>
+            <input type="text" id="fDate" placeholder="YYYY-MM-DD" value="2026-11-23" />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="cancelModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Holding</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Night Mode Quick Toggle (Always Visible) -->
+  <button id="floatingThemeToggle" class="floating-theme-btn" title="Toggle Night / Day Mode" aria-label="Toggle Night Mode">
+    <span id="floatingThemeIcon">🌙</span>
+    <span class="floating-theme-label" id="floatingThemeLabel">Night</span>
+  </button>
+
+  <script src="app.js?v=4"></script>
+</body>
+</html>
