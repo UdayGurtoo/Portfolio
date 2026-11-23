@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "installCommand": "echo 'Zero dependencies needed'",
+  "buildCommand": "echo 'Build ready'",
   "rewrites": [
     { "source": "/api/fx", "destination": "/api/fx.js" },
     { "source": "/api/quotes", "destination": "/api/quotes.js" }
