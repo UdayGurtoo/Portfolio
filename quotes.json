@@ -1,0 +1,375 @@
+{
+  "quotes": {
+    "ISRG": {
+      "ticker": "ISRG",
+      "price": 431.04,
+      "change": 14.81,
+      "changePct": 3.56,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113232
+    },
+    "AMZN": {
+      "ticker": "AMZN",
+      "price": 251.43,
+      "change": -3.96,
+      "changePct": -1.55,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113229
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "price": 152.75,
+      "change": -12.31,
+      "changePct": -7.46,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113233
+    },
+    "SHOP": {
+      "ticker": "SHOP",
+      "price": 131.07,
+      "change": -3.23,
+      "changePct": -2.41,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113234
+    },
+    "NOW": {
+      "ticker": "NOW",
+      "price": 91.17,
+      "change": -0.55,
+      "changePct": -0.6,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113233
+    },
+    "ADANIGREEN.NS": {
+      "ticker": "ADANIGREEN.NS",
+      "price": 1391,
+      "change": -44,
+      "changePct": -3.07,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113236
+    },
+    "AVGO": {
+      "ticker": "AVGO",
+      "price": 302.53,
+      "change": -11.02,
+      "changePct": -3.51,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113230
+    },
+    "ABSLNN50ET.NS": {
+      "ticker": "ABSLNN50ET.NS",
+      "price": 76.28,
+      "change": -0.99,
+      "changePct": -1.28,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113235
+    },
+    "TATAGOLD.NS": {
+      "ticker": "TATAGOLD.NS",
+      "price": 12.11,
+      "change": 0.1,
+      "changePct": 0.83,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113235
+    },
+    "GOOG": {
+      "ticker": "GOOG",
+      "price": 275.01,
+      "change": -4.51,
+      "changePct": -1.61,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113232
+    },
+    "META": {
+      "ticker": "META",
+      "price": 590.19,
+      "change": -7.41,
+      "changePct": -1.24,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113232
+    },
+    "RH": {
+      "ticker": "RH",
+      "price": 105.11,
+      "change": -2.81,
+      "changePct": -2.6,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113234
+    },
+    "NIF100IETF.NS": {
+      "ticker": "NIF100IETF.NS",
+      "price": 29.3,
+      "change": -0.4,
+      "changePct": -1.35,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113239
+    },
+    "V": {
+      "ticker": "V",
+      "price": 415.07,
+      "change": 5.68,
+      "changePct": 1.39,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113235
+    },
+    "TSM": {
+      "ticker": "TSM",
+      "price": 348,
+      "change": -15.6,
+      "changePct": -4.29,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113235
+    },
+    "ITETF.NS": {
+      "ticker": "ITETF.NS",
+      "price": 33.94,
+      "change": 0.67,
+      "changePct": 2.01,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113240
+    },
+    "CAMS.NS": {
+      "ticker": "CAMS.NS",
+      "price": 722.15,
+      "change": -2.5,
+      "changePct": -0.34,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113238
+    },
+    "SETFNIF50.NS": {
+      "ticker": "SETFNIF50.NS",
+      "price": 247.34,
+      "change": 0,
+      "changePct": 0,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113242
+    },
+    "APOLLOHOSP.NS": {
+      "ticker": "APOLLOHOSP.NS",
+      "price": 9257,
+      "change": 57,
+      "changePct": 0.62,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113236
+    },
+    "HDFCBANK.NS": {
+      "ticker": "HDFCBANK.NS",
+      "price": 817.8,
+      "change": -28.2,
+      "changePct": -3.33,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113239
+    },
+    "ROUTE.NS": {
+      "ticker": "ROUTE.NS",
+      "price": 416.5,
+      "change": -0.9,
+      "changePct": -0.22,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113242
+    },
+    "AMBUJACEM.NS": {
+      "ticker": "AMBUJACEM.NS",
+      "price": 391.95,
+      "change": -8.05,
+      "changePct": -2.01,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113236
+    },
+    "PVRINOX.NS": {
+      "ticker": "PVRINOX.NS",
+      "price": 1699.7,
+      "change": 47.5,
+      "changePct": 2.87,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113241
+    },
+    "NTPC.NS": {
+      "ticker": "NTPC.NS",
+      "price": 315.45,
+      "change": -6.05,
+      "changePct": -1.88,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113241
+    },
+    "BANKIETF.NS": {
+      "ticker": "BANKIETF.NS",
+      "price": 64.4,
+      "change": -1.99,
+      "changePct": -3,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113239
+    },
+    "KOTAKBANK.NS": {
+      "ticker": "KOTAKBANK.NS",
+      "price": 502.85,
+      "change": -12.95,
+      "changePct": -2.51,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113240
+    },
+    "BANKBARODA.NS": {
+      "ticker": "BANKBARODA.NS",
+      "price": 275.58,
+      "change": -11.42,
+      "changePct": -3.98,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113238
+    },
+    "PERSISTENT.NS": {
+      "ticker": "PERSISTENT.NS",
+      "price": 6282.5,
+      "change": 158.5,
+      "changePct": 2.59,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113241
+    },
+    "INOXWIND.NS": {
+      "ticker": "INOXWIND.NS",
+      "price": 53.7,
+      "change": -1.76,
+      "changePct": -3.17,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113244
+    },
+    "SUZLON.NS": {
+      "ticker": "SUZLON.NS",
+      "price": 35.86,
+      "change": -1.1,
+      "changePct": -2.98,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113242
+    },
+    "INFY.NS": {
+      "ticker": "INFY.NS",
+      "price": 1103.4,
+      "change": 5.4,
+      "changePct": 0.49,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113240
+    },
+    "LODHA.NS": {
+      "ticker": "LODHA.NS",
+      "price": 1219,
+      "change": 0.3,
+      "changePct": 0.02,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113244
+    },
+    "WAAREERTL.NS": {
+      "ticker": "WAAREERTL.NS",
+      "price": 682.3,
+      "change": -11.05,
+      "changePct": -1.59,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113245
+    },
+    "ETN": {
+      "ticker": "ETN",
+      "price": 318.99,
+      "change": -17.35,
+      "changePct": -5.16,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113231
+    },
+    "VBL.NS": {
+      "ticker": "VBL.NS",
+      "price": 427.15,
+      "change": -0.35,
+      "changePct": -0.08,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113243
+    },
+    "ASIANPAINT.NS": {
+      "ticker": "ASIANPAINT.NS",
+      "price": 2580.4,
+      "change": -27.9,
+      "changePct": -1.07,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113244
+    },
+    "TCS.NS": {
+      "ticker": "TCS.NS",
+      "price": 2460,
+      "change": 83.8,
+      "changePct": 3.53,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113243
+    },
+    "BAJFINANCE.NS": {
+      "ticker": "BAJFINANCE.NS",
+      "price": 1095.5,
+      "change": -26.5,
+      "changePct": -2.36,
+      "currency": "INR",
+      "marketState": "closed",
+      "timestamp": 1795550113237
+    },
+    "BRK-B": {
+      "ticker": "BRK-B",
+      "price": 575.98,
+      "change": 3.62,
+      "changePct": 0.63,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113231
+    },
+    "ORCL": {
+      "ticker": "ORCL",
+      "price": 108.76,
+      "change": -4.92,
+      "changePct": -4.33,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113234
+    },
+    "MSFT": {
+      "ticker": "MSFT",
+      "price": 493.35,
+      "change": 0.85,
+      "changePct": 0.17,
+      "currency": "USD",
+      "marketState": "closed",
+      "timestamp": 1795550113233
+    }
+  },
+  "timestamp": 1795550113574,
+  "tickerCount": 41
+}
