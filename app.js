@@ -574,6 +574,19 @@ async function syncRealTimeQuotes(isManual = false) {
       console.warn("Backend quote API unreachable:", e);
     }
 
+    // Static hosting fallback (e.g. GitHub Pages)
+    if (!quotes) {
+      try {
+        const staticRes = await fetch("quotes.json?v=7");
+        if (staticRes.ok) {
+          const staticData = await staticRes.json();
+          if (staticData && staticData.quotes) quotes = staticData.quotes;
+        }
+      } catch (e) {
+        console.warn("Static quotes.json unreachable:", e);
+      }
+    }
+
     const flashMap = {};
     let updatedCount = 0;
 
