@@ -1,4 +1,4 @@
-const STORAGE_KEY = "portfolio_screener_holdings_v8";
+const STORAGE_KEY = "portfolio_screener_holdings_v9";
 
 const DEFAULT_HOLDINGS = [
   // Portfolio 1: Indian Primary (Upstox 7MALEK - Urvashi Gurtoo)
@@ -183,6 +183,56 @@ function renderAll(flashMap = {}) {
   nEl.className = "kpi-value " + (netProfit >= 0 ? "pos" : "neg");
   document.getElementById("kpiNetPct").textContent = `${netPct >= 0 ? "+" : ""}${netPct.toFixed(2)}% net return`;
 
+  // Compute Category Breakdown (Indian Stocks vs Mutual Funds vs US Equities vs Grand Total)
+  let indInv = 0, indVal = 0, indCount = 0;
+  let mfInv = 0, mfVal = 0, mfCount = 0;
+  let usInv = 0, usVal = 0, usCount = 0, usInvUSD = 0, usValUSD = 0;
+
+  enriched.forEach(h => {
+    if (h.portfolio === "P3") {
+      usInv += h.invINR;
+      usVal += h.valINR;
+      usInvUSD += h.inv;
+      usValUSD += h.val;
+      usCount++;
+    } else if (h.type === "Mutual Fund") {
+      mfInv += h.invINR;
+      mfVal += h.valINR;
+      mfCount++;
+    } else {
+      indInv += h.invINR;
+      indVal += h.valINR;
+      indCount++;
+    }
+  });
+
+  const indRealized = 9888.08;
+  const indUnrealized = indVal - indInv;
+  const indUnrealizedPct = indInv > 0 ? (indUnrealized / indInv) * 100 : 0;
+  const indNet = indUnrealized + indRealized;
+  const indNetPct = indInv > 0 ? (indNet / indInv) * 100 : 0;
+
+  const mfRealized = 2784.20;
+  const mfUnrealized = mfVal - mfInv;
+  const mfUnrealizedPct = mfInv > 0 ? (mfUnrealized / mfInv) * 100 : 0;
+  const mfNet = mfUnrealized + mfRealized;
+  const mfNetPct = mfInv > 0 ? (mfNet / mfInv) * 100 : 0;
+
+  const usRealized = 0;
+  const usUnrealized = usVal - usInv;
+  const usUnrealizedPct = usInv > 0 ? (usUnrealized / usInv) * 100 : 0;
+  const usNet = usUnrealized + usRealized;
+  const usNetPct = usInv > 0 ? (usNet / usInv) * 100 : 0;
+  const usUnrealizedUSD = usValUSD - usInvUSD;
+
+  // Render Asset Class Breakdown Cards
+  renderBreakdownCards({
+    indInv, indVal, indCount, indUnrealized, indUnrealizedPct, indRealized, indNet, indNetPct,
+    mfInv, mfVal, mfCount, mfUnrealized, mfUnrealizedPct, mfRealized, mfNet, mfNetPct,
+    usInv, usVal, usCount, usInvUSD, usValUSD, usUnrealized, usUnrealizedPct, usUnrealizedUSD, usRealized, usNet, usNetPct,
+    totalInvINR, totalValINR, totalUnrealized, totalUnrealizedPct, totalRealized, netProfit, netPct
+  });
+
   // Render Donut Chart
   renderAllocationChart(totalValINR, { p1Val, p2Val, p3ValINR }, assetTotals);
 
@@ -217,6 +267,117 @@ function renderAll(flashMap = {}) {
     document.getElementById("realizedTableWrap").classList.add("hidden");
     renderHoldingsTable(enriched, flashMap);
   }
+}
+
+function renderBreakdownCards(m) {
+  const container = document.getElementById("breakdownGrid");
+  if (!container) return;
+
+  const cards = [
+    {
+      cls: "cat-ind",
+      icon: "🇮🇳",
+      title: "Indian Stocks & ETFs",
+      tag: `${m.indCount} Holdings (P1 & P2)`,
+      val: fmtINR(m.indVal),
+      inv: fmtINR(m.indInv),
+      unPnl: fmtSignedINR(m.indUnrealized),
+      unPct: `${m.indUnrealizedPct >= 0 ? "+" : ""}${m.indUnrealizedPct.toFixed(2)}%`,
+      unPos: m.indUnrealized >= 0,
+      realized: `+${fmtINR(m.indRealized)}`,
+      realizedTrades: "4 Trades",
+      net: fmtSignedINR(m.indNet),
+      netPct: `${m.indNetPct >= 0 ? "+" : ""}${m.indNetPct.toFixed(2)}%`,
+      netPos: m.indNet >= 0
+    },
+    {
+      cls: "cat-mf",
+      icon: "📊",
+      title: "Mutual Funds",
+      tag: `${m.mfCount} Schemes (Direct)`,
+      val: fmtINR(m.mfVal),
+      inv: fmtINR(m.mfInv),
+      unPnl: fmtSignedINR(m.mfUnrealized),
+      unPct: `${m.mfUnrealizedPct >= 0 ? "+" : ""}${m.mfUnrealizedPct.toFixed(2)}%`,
+      unPos: m.mfUnrealized >= 0,
+      realized: `+${fmtINR(m.mfRealized)}`,
+      realizedTrades: "1 Trade",
+      net: fmtSignedINR(m.mfNet),
+      netPct: `${m.mfNetPct >= 0 ? "+" : ""}${m.mfNetPct.toFixed(2)}%`,
+      netPos: m.mfNet >= 0
+    },
+    {
+      cls: "cat-us",
+      icon: "🇺🇸",
+      title: "US Equities",
+      tag: `${m.usCount} Stocks (INDmoney)`,
+      val: fmtINR(m.usVal),
+      valSub: fmtUSD(m.usValUSD),
+      inv: `${fmtINR(m.usInv)} (${fmtUSD(m.usInvUSD)})`,
+      unPnl: `${fmtSignedINR(m.usUnrealized)}`,
+      unPnlSub: `(${fmtSignedUSD(m.usUnrealizedUSD)})`,
+      unPct: `${m.usUnrealizedPct >= 0 ? "+" : ""}${m.usUnrealizedPct.toFixed(2)}%`,
+      unPos: m.usUnrealized >= 0,
+      realized: "₹0.00",
+      realizedTrades: "0 Trades",
+      net: fmtSignedINR(m.usNet),
+      netPct: `${m.usNetPct >= 0 ? "+" : ""}${m.usNetPct.toFixed(2)}%`,
+      netPos: m.usNet >= 0
+    },
+    {
+      cls: "cat-total",
+      icon: "🌐",
+      title: "Consolidated Total",
+      tag: `${holdings.length} Assets (All)`,
+      val: fmtINR(m.totalValINR),
+      inv: fmtINR(m.totalInvINR),
+      unPnl: fmtSignedINR(m.totalUnrealized),
+      unPct: `${m.totalUnrealizedPct >= 0 ? "+" : ""}${m.totalUnrealizedPct.toFixed(2)}%`,
+      unPos: m.totalUnrealized >= 0,
+      realized: `+${fmtINR(m.totalRealized)}`,
+      realizedTrades: "5 Trades",
+      net: fmtSignedINR(m.netProfit),
+      netPct: `${m.netPct >= 0 ? "+" : ""}${m.netPct.toFixed(2)}%`,
+      netPos: m.netProfit >= 0
+    }
+  ];
+
+  container.innerHTML = cards.map(c => `
+    <div class="breakdown-card ${c.cls}">
+      <div class="breakdown-card-top">
+        <span class="breakdown-card-title">${c.icon} ${c.title}</span>
+        <span class="breakdown-card-tag">${c.tag}</span>
+      </div>
+      <div class="breakdown-primary-box">
+        <span class="breakdown-primary-label">Total Current Value</span>
+        <div class="breakdown-primary-val">${c.val} ${c.valSub ? `<span style="font-size:12px;font-weight:600;color:var(--muted)">(${c.valSub})</span>` : ''}</div>
+        <span class="breakdown-primary-sub">Invested: ${c.inv}</span>
+      </div>
+      <div class="breakdown-stats-list">
+        <div class="breakdown-stat-row">
+          <span class="breakdown-stat-label">Total Unrealized P&amp;L</span>
+          <span class="breakdown-stat-val ${c.unPos ? 'pos' : 'neg'}">
+            ${c.unPnl} ${c.unPnlSub ? `<small style="font-size:10px">${c.unPnlSub}</small>` : ''}
+            <small>(${c.unPct})</small>
+          </span>
+        </div>
+        <div class="breakdown-stat-row">
+          <span class="breakdown-stat-label">Total Realized P&amp;L</span>
+          <span class="breakdown-stat-val pos">
+            ${c.realized}
+            <small style="color:var(--muted);font-weight:500">(${c.realizedTrades})</small>
+          </span>
+        </div>
+        <div class="breakdown-stat-row">
+          <span class="breakdown-stat-label">Net Overall Return</span>
+          <span class="breakdown-stat-val ${c.netPos ? 'pos' : 'neg'}">
+            ${c.net}
+            <small>(${c.netPct})</small>
+          </span>
+        </div>
+      </div>
+    </div>
+  `).join("");
 }
 
 function renderAllocationChart(totalValINR, portMap, assetMap) {

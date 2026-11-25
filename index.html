@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Screener &amp; Live Equity Tracker</title>
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
   <script>
     // Prevent theme flicker on page load
     (function() {
@@ -72,6 +72,17 @@
         <span class="kpi-label">Net Overall Return</span>
         <div class="kpi-value" id="kpiNetPnl">₹0.00</div>
         <span class="kpi-sub" id="kpiNetPct">Unrealized + Realized</span>
+      </div>
+    </section>
+
+    <!-- Asset Class & Category Performance Breakdown (Stocks vs MFs vs US vs Total) -->
+    <section class="breakdown-section" id="breakdownSection">
+      <div class="section-title-row">
+        <h2 class="section-title">Asset Class Performance Breakdown</h2>
+        <span class="muted-text">Indian Stocks vs Mutual Funds vs US Equities vs Grand Total</span>
+      </div>
+      <div class="breakdown-grid" id="breakdownGrid">
+        <!-- Rendered dynamically by app.js -->
       </div>
     </section>
 
@@ -260,6 +271,6 @@
     <span class="floating-theme-label" id="floatingThemeLabel">Night</span>
   </button>
 
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>
