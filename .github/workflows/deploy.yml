@@ -1,8 +1,6 @@
-name: Deploy to GitHub Pages
+name: Scheduled Market Quotes Sync
 
 on:
-  push:
-    branches: ["main"]
   schedule:
     # 1. Indian Market Trading Hours (Mon-Fri 09:15-15:30 IST / 03:45-10:00 UTC)
     - cron: '*/15 4-9 * * 1-5'
@@ -18,46 +16,41 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  sync-quotes:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Fetch Market-Aware Quotes & Verify Google Finance
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "push" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             node scripts/update-quotes.js --force
           else
             node scripts/update-quotes.js
           fi
-      - name: Commit Updated Quotes Snapshot to main
+
+      - name: Commit and Push to main and gh-pages
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add quotes.json app.js
-          git diff --quiet && git diff --staged --quiet || git commit -m "Automated market sync & Google Finance verification [skip ci]"
-          git push origin main || echo "No changes or push skipped"
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git commit -m "Automated market sync & Google Finance verification [skip ci]"
+            git push origin main
+            git checkout gh-pages
+            git merge main --ff-only || git merge main -m "merge: automated market sync"
+            git push origin gh-pages
+          else
+            echo "No changes in quotes.json or app.js"
+          fi
