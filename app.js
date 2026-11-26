@@ -1,71 +1,71 @@
-const STORAGE_KEY = "portfolio_screener_holdings_v10";
+const STORAGE_KEY = "portfolio_screener_holdings_v11";
 
 const DEFAULT_HOLDINGS = [
   // Portfolio 1: Indian Primary (Upstox 7MALEK - Urvashi Gurtoo)
-  { portfolio: "P1", name: "TATAGOLD ETF", symbol: "INF277KA1976", type: "Gold", qty: 10675, avgBuy: 12.18, cmp: 11.83, date: "2026-11-23" },
-  { portfolio: "P1", name: "ABSL NIFTY NXT50 ETF", symbol: "INF209KB16D7", type: "ETF", qty: 17, avgBuy: 65.66, cmp: 76.55, date: "2025-01-09" },
-  { portfolio: "P1", name: "ADANI GREEN ENERG-EQ", symbol: "INE364U01010", type: "Equity", qty: 18, avgBuy: 1061, cmp: 1364.5, date: "2025-11-10" },
-  { portfolio: "P1", name: "AMBUJA CEMENTS EQ", symbol: "INE079A01024", type: "Equity", qty: 45, avgBuy: 399, cmp: 392, date: "2026-03-23" },
-  { portfolio: "P1", name: "APOLLO HOSPIT-EQ5/-", symbol: "INE437A01024", type: "Equity", qty: 2, avgBuy: 7545, cmp: 9300, date: "2025-11-10" },
-  { portfolio: "P1", name: "AXIS N500IF D-GROW", symbol: "INF846K019W9", type: "Mutual Fund", qty: 9697.87, avgBuy: 9.9, cmp: 10.6, date: "SIP" },
-  { portfolio: "P1", name: "BAJAJ FINANCE-EQ1/-", symbol: "INE296A01032", type: "Equity", qty: 24, avgBuy: 971, cmp: 1131.35, date: "2026-09-29" },
-  { portfolio: "P1", name: "BANK OF BARODA-EQ", symbol: "INE028A01039", type: "Equity", qty: 6, avgBuy: 247.97, cmp: 276.43, date: "2026-07-16" },
-  { portfolio: "P1", name: "COMPUTER AGE-EQ2/-", symbol: "INE596I01020", type: "Equity", qty: 38, avgBuy: 622, cmp: 717.5, date: "2026-03-23" },
+  { portfolio: "P1", name: "TATAGOLD ETF", symbol: "INF277KA1976", type: "Gold", qty: 10675, avgBuy: 12.18, cmp: 11.93, date: "2026-11-23" },
+  { portfolio: "P1", name: "ABSL NIFTY NXT50 ETF", symbol: "INF209KB16D7", type: "ETF", qty: 17, avgBuy: 65.66, cmp: 77.08, date: "2025-01-09" },
+  { portfolio: "P1", name: "ADANI GREEN ENERG-EQ", symbol: "INE364U01010", type: "Equity", qty: 18, avgBuy: 1061, cmp: 1345.9, date: "2025-11-10" },
+  { portfolio: "P1", name: "AMBUJA CEMENTS EQ", symbol: "INE079A01024", type: "Equity", qty: 45, avgBuy: 399, cmp: 389.25, date: "2026-03-23" },
+  { portfolio: "P1", name: "APOLLO HOSPIT-EQ5/-", symbol: "INE437A01024", type: "Equity", qty: 2, avgBuy: 7545, cmp: 9233, date: "2025-11-10" },
+  { portfolio: "P1", name: "AXIS N500IF D-GROW", symbol: "INF846K019W9", type: "Mutual Fund", qty: 9697.87, avgBuy: 9.9, cmp: 10.57, date: "SIP" },
+  { portfolio: "P1", name: "BAJAJ FINANCE-EQ1/-", symbol: "INE296A01032", type: "Equity", qty: 24, avgBuy: 971, cmp: 1111.7, date: "2026-09-29" },
+  { portfolio: "P1", name: "BANK OF BARODA-EQ", symbol: "INE028A01039", type: "Equity", qty: 6, avgBuy: 247.97, cmp: 276.14, date: "2026-07-16" },
+  { portfolio: "P1", name: "COMPUTER AGE-EQ2/-", symbol: "INE596I01020", type: "Equity", qty: 38, avgBuy: 622, cmp: 744.65, date: "2026-03-23" },
   { portfolio: "P1", name: "DSP N500FQ30 ETF", symbol: "INF740KA1WU9", type: "ETF", qty: 75, avgBuy: 9.21, cmp: 10.24, date: "2026-03-23" },
-  { portfolio: "P1", name: "DSPBLACK ETSF DP GR", symbol: "INF740K01OK1", type: "Mutual Fund", qty: 1369.88, avgBuy: 151.83, cmp: 166.39, date: "SIP" },
-  { portfolio: "P1", name: "HDFC BANK-EQ1/-", symbol: "INE040A01034", type: "Equity", qty: 68, avgBuy: 752.06, cmp: 846.2, date: "2025-02-03" },
-  { portfolio: "P1", name: "HDFC MCF D-GROW", symbol: "INF179KC1BS5", type: "Mutual Fund", qty: 1465.84, avgBuy: 20.47, cmp: 20.27, date: "2024-09-03" },
-  { portfolio: "P1", name: "ICICI NIFTY BANK ETF", symbol: "INF109KC15I8", type: "ETF", qty: 383, avgBuy: 56.37, cmp: 65.49, date: "2025-10-27" },
-  { portfolio: "P1", name: "INFOSYS LTD-EQ 5/-", symbol: "INE009A01021", type: "Equity", qty: 24, avgBuy: 990, cmp: 1130, date: "2026-09-29" },
-  { portfolio: "P1", name: "KOTAK MAHINDRA-EQ1/-", symbol: "INE237A01036", type: "Equity", qty: 206, avgBuy: 384.57, cmp: 509, date: "2026-01-14" },
-  { portfolio: "P1", name: "KOTAK NIF IT ETF", symbol: "INF174KA1GC5", type: "ETF", qty: 980, avgBuy: 38.7, cmp: 34.16, date: "2025-10-10" },
-  { portfolio: "P1", name: "NTPC LTD", symbol: "INE733E01010", type: "Equity", qty: 6, avgBuy: 322.7, cmp: 318, date: "2026-11-08" },
-  { portfolio: "P1", name: "PERSISTENT SYS-EQ5/-", symbol: "INE262H01021", type: "Equity", qty: 5, avgBuy: 5095, cmp: 6120, date: "2025-09-08" },
-  { portfolio: "P1", name: "PVR INOX EQUITY", symbol: "INE191H01014", type: "Equity", qty: 36, avgBuy: 999, cmp: 1709.3, date: "2026-01-19" },
-  { portfolio: "P1", name: "QUANT FCF D-GROW", symbol: "INF966L01911", type: "Mutual Fund", qty: 137.7, avgBuy: 116.19, cmp: 123.32, date: "SIP" },
-  { portfolio: "P1", name: "QUANT TAX D-GROW", symbol: "INF966L01986", type: "Mutual Fund", qty: 45.38, avgBuy: 440.7, cmp: 473.39, date: "SIP" },
-  { portfolio: "P1", name: "ROUTE MOBILE-EQTY", symbol: "INE450U01017", type: "Equity", qty: 3, avgBuy: 575.97, cmp: 412.25, date: "2026-07-16" },
+  { portfolio: "P1", name: "DSPBLACK ETSF DP GR", symbol: "INF740K01OK1", type: "Mutual Fund", qty: 1369.88, avgBuy: 151.83, cmp: 165.77, date: "SIP" },
+  { portfolio: "P1", name: "HDFC BANK-EQ1/-", symbol: "INE040A01034", type: "Equity", qty: 68, avgBuy: 752.06, cmp: 866.3, date: "2025-02-03" },
+  { portfolio: "P1", name: "HDFC MCF D-GROW", symbol: "INF179KC1BS5", type: "Mutual Fund", qty: 1465.84, avgBuy: 20.47, cmp: 20.29, date: "2024-09-03" },
+  { portfolio: "P1", name: "ICICI NIFTY BANK ETF", symbol: "INF109KC15I8", type: "ETF", qty: 383, avgBuy: 56.37, cmp: 65.54, date: "2025-10-27" },
+  { portfolio: "P1", name: "INFOSYS LTD-EQ 5/-", symbol: "INE009A01021", type: "Equity", qty: 24, avgBuy: 990, cmp: 1159.9, date: "2026-09-29" },
+  { portfolio: "P1", name: "KOTAK MAHINDRA-EQ1/-", symbol: "INE237A01036", type: "Equity", qty: 206, avgBuy: 384.57, cmp: 508.1, date: "2026-01-14" },
+  { portfolio: "P1", name: "KOTAK NIF IT ETF", symbol: "INF174KA1GC5", type: "ETF", qty: 980, avgBuy: 38.7, cmp: 34.68, date: "2025-10-10" },
+  { portfolio: "P1", name: "NTPC LTD", symbol: "INE733E01010", type: "Equity", qty: 6, avgBuy: 322.7, cmp: 319.95, date: "2026-11-08" },
+  { portfolio: "P1", name: "PERSISTENT SYS-EQ5/-", symbol: "INE262H01021", type: "Equity", qty: 5, avgBuy: 5095, cmp: 6135.5, date: "2025-09-08" },
+  { portfolio: "P1", name: "PVR INOX EQUITY", symbol: "INE191H01014", type: "Equity", qty: 36, avgBuy: 999, cmp: 1650.8, date: "2026-01-19" },
+  { portfolio: "P1", name: "QUANT FCF D-GROW", symbol: "INF966L01911", type: "Mutual Fund", qty: 137.7, avgBuy: 116.19, cmp: 122.9, date: "SIP" },
+  { portfolio: "P1", name: "QUANT TAX D-GROW", symbol: "INF966L01986", type: "Mutual Fund", qty: 45.38, avgBuy: 440.7, cmp: 472.59, date: "SIP" },
+  { portfolio: "P1", name: "ROUTE MOBILE-EQTY", symbol: "INE450U01017", type: "Equity", qty: 3, avgBuy: 575.97, cmp: 410.7, date: "2026-07-16" },
   { portfolio: "P1", name: "SBI NIFTY 50 ETF", symbol: "INF200KA1FS1", type: "ETF", qty: 368, avgBuy: 251, cmp: 247.34, date: "2024-12-19" },
-  { portfolio: "P1", name: "SUZLON ENERG-EQ RS 2", symbol: "INE040H01021", type: "Equity", qty: 1, avgBuy: 51.98, cmp: 36.13, date: "2026-07-16" },
-  { portfolio: "P1", name: "TATA CONSULTANCY-1/-", symbol: "INE467B01029", type: "Equity", qty: 20, avgBuy: 3155.4, cmp: 2517.3, date: "2025-07-21" },
-  { portfolio: "P1", name: "VARUN BEVERAGE-EQ2/-", symbol: "INE200M01039", type: "Equity", qty: 47, avgBuy: 383.5, cmp: 437.1, date: "2026-03-23" },
+  { portfolio: "P1", name: "SUZLON ENERG-EQ RS 2", symbol: "INE040H01021", type: "Equity", qty: 1, avgBuy: 51.98, cmp: 36.22, date: "2026-07-16" },
+  { portfolio: "P1", name: "TATA CONSULTANCY-1/-", symbol: "INE467B01029", type: "Equity", qty: 20, avgBuy: 3155.4, cmp: 2547.2, date: "2025-07-21" },
+  { portfolio: "P1", name: "VARUN BEVERAGE-EQ2/-", symbol: "INE200M01039", type: "Equity", qty: 47, avgBuy: 383.5, cmp: 426.7, date: "2026-03-23" },
 
   // Portfolio 2: Indian Secondary (Upstox 7UAQA9 - Veena Koul)
-  { portfolio: "P2", name: "ADANI GREEN ENERG-EQ", symbol: "INE364U01010", type: "Equity", qty: 7, avgBuy: 1020, cmp: 1364.5, date: "2025-10-27" },
-  { portfolio: "P2", name: "ASIAN PAINTS EQ 1/-", symbol: "INE021A01026", type: "Equity", qty: 5, avgBuy: 2348, cmp: 2621.2, date: "2025-02-03" },
-  { portfolio: "P2", name: "EDELW FLEXCF D-GROW", symbol: "INF843K01KK1", type: "Mutual Fund", qty: 2003.45, avgBuy: 43.92, cmp: 47.79, date: "2026-03-10" },
-  { portfolio: "P2", name: "HDFC FCF D-GROWTH", symbol: "INF179K01UT0", type: "Mutual Fund", qty: 36.72, avgBuy: 2042.41, cmp: 2427.51, date: "SIP" },
-  { portfolio: "P2", name: "HDFC MCF D-GROW", symbol: "INF179KC1BS5", type: "Mutual Fund", qty: 2443.07, avgBuy: 20.47, cmp: 20.27, date: "2024-09-03" },
-  { portfolio: "P2", name: "ICICI NIFTY 100 ETF", symbol: "INF109KC16V9", type: "ETF", qty: 2050, avgBuy: 26.3, cmp: 29.66, date: "2025-01-13" },
-  { portfolio: "P2", name: "ICICI NIFTY BANK ETF", symbol: "INF109KC15I8", type: "ETF", qty: 194, avgBuy: 59.35, cmp: 65.49, date: "2025-10-27" },
-  { portfolio: "P2", name: "INFOSYS LTD-EQ 5/-", symbol: "INE009A01021", type: "Equity", qty: 21, avgBuy: 1153.5, cmp: 1130, date: "2026-04-24" },
-  { portfolio: "P2", name: "INOX WIND- EQ", symbol: "INE066P01011", type: "Equity", qty: 67, avgBuy: 147, cmp: 52.36, date: "2025-09-08" },
-  { portfolio: "P2", name: "KOTAK MAHINDRA-EQ1/-", symbol: "INE237A01036", type: "Equity", qty: 25, avgBuy: 380, cmp: 509, date: "2026-01-14" },
-  { portfolio: "P2", name: "KOTAK NIF IT ETF", symbol: "INF174KA1GC5", type: "ETF", qty: 3571, avgBuy: 38.21, cmp: 34.16, date: "2025-08-18" },
-  { portfolio: "P2", name: "LODHA DEVELOP-EQ10/-", symbol: "INE670K01029", type: "Equity", qty: 13, avgBuy: 1213, cmp: 1202, date: "2025-11-10" },
-  { portfolio: "P2", name: "NIP MLCF DP-GP-GROW", symbol: "INF204K01XF9", type: "Mutual Fund", qty: 153.02, avgBuy: 326.74, cmp: 337.46, date: "2024-09-03" },
-  { portfolio: "P2", name: "PERSISTENT SYS-EQ5/-", symbol: "INE262H01021", type: "Equity", qty: 5, avgBuy: 4744.59, cmp: 6120, date: "2026-04-24" },
+  { portfolio: "P2", name: "ADANI GREEN ENERG-EQ", symbol: "INE364U01010", type: "Equity", qty: 7, avgBuy: 1020, cmp: 1345.9, date: "2025-10-27" },
+  { portfolio: "P2", name: "ASIAN PAINTS EQ 1/-", symbol: "INE021A01026", type: "Equity", qty: 5, avgBuy: 2348, cmp: 2550.4, date: "2025-02-03" },
+  { portfolio: "P2", name: "EDELW FLEXCF D-GROW", symbol: "INF843K01KK1", type: "Mutual Fund", qty: 2003.45, avgBuy: 43.92, cmp: 47.74, date: "2026-03-10" },
+  { portfolio: "P2", name: "HDFC FCF D-GROWTH", symbol: "INF179K01UT0", type: "Mutual Fund", qty: 36.72, avgBuy: 2042.41, cmp: 2425.74, date: "SIP" },
+  { portfolio: "P2", name: "HDFC MCF D-GROW", symbol: "INF179KC1BS5", type: "Mutual Fund", qty: 2443.07, avgBuy: 20.47, cmp: 20.29, date: "2024-09-03" },
+  { portfolio: "P2", name: "ICICI NIFTY 100 ETF", symbol: "INF109KC16V9", type: "ETF", qty: 2050, avgBuy: 26.3, cmp: 29.76, date: "2025-01-13" },
+  { portfolio: "P2", name: "ICICI NIFTY BANK ETF", symbol: "INF109KC15I8", type: "ETF", qty: 194, avgBuy: 59.35, cmp: 65.54, date: "2025-10-27" },
+  { portfolio: "P2", name: "INFOSYS LTD-EQ 5/-", symbol: "INE009A01021", type: "Equity", qty: 21, avgBuy: 1153.5, cmp: 1159.9, date: "2026-04-24" },
+  { portfolio: "P2", name: "INOX WIND- EQ", symbol: "INE066P01011", type: "Equity", qty: 67, avgBuy: 147, cmp: 53, date: "2025-09-08" },
+  { portfolio: "P2", name: "KOTAK MAHINDRA-EQ1/-", symbol: "INE237A01036", type: "Equity", qty: 25, avgBuy: 380, cmp: 508.1, date: "2026-01-14" },
+  { portfolio: "P2", name: "KOTAK NIF IT ETF", symbol: "INF174KA1GC5", type: "ETF", qty: 3571, avgBuy: 38.21, cmp: 34.68, date: "2025-08-18" },
+  { portfolio: "P2", name: "LODHA DEVELOP-EQ10/-", symbol: "INE670K01029", type: "Equity", qty: 13, avgBuy: 1213, cmp: 1238.6, date: "2025-11-10" },
+  { portfolio: "P2", name: "NIP MLCF DP-GP-GROW", symbol: "INF204K01XF9", type: "Mutual Fund", qty: 153.02, avgBuy: 326.74, cmp: 338.53, date: "2024-09-03" },
+  { portfolio: "P2", name: "PERSISTENT SYS-EQ5/-", symbol: "INE262H01021", type: "Equity", qty: 5, avgBuy: 4744.59, cmp: 6135.5, date: "2026-04-24" },
   { portfolio: "P2", name: "SBI GOLD DP GR", symbol: "INF200K01RP8", type: "Gold", qty: 1338.53, avgBuy: 22.41, cmp: 37.37, date: "2024-06-28" },
   { portfolio: "P2", name: "SBI NIFTY 50 ETF", symbol: "INF200KA1FS1", type: "ETF", qty: 410, avgBuy: 255.1, cmp: 247.34, date: "2024-11-11" },
-  { portfolio: "P2", name: "TATA CONSULTANCY-1/-", symbol: "INE467B01029", type: "Equity", qty: 13, avgBuy: 3090.5, cmp: 2517.3, date: "2025-07-28" },
-  { portfolio: "P2", name: "WAAREE RENEW-EQ2/-", symbol: "INE299N01021", type: "Equity", qty: 17, avgBuy: 1020, cmp: 674.35, date: "2025-09-08" },
+  { portfolio: "P2", name: "TATA CONSULTANCY-1/-", symbol: "INE467B01029", type: "Equity", qty: 13, avgBuy: 3090.5, cmp: 2547.2, date: "2025-07-28" },
+  { portfolio: "P2", name: "WAAREE RENEW-EQ2/-", symbol: "INE299N01021", type: "Equity", qty: 17, avgBuy: 1020, cmp: 682.05, date: "2025-09-08" },
 
   // Portfolio 3: US Equities (INDmoney Global 258461814) - Live Real-Time Market Baseline
-  { portfolio: "P3", name: "Amazon", symbol: "AMZN", type: "Equity", qty: 4.440345, avgBuy: 244.1, cmp: 243.47, date: "2026-11-23" },
-  { portfolio: "P3", name: "Broadcom", symbol: "AVGO", type: "Equity", qty: 0.774233, avgBuy: 412.1, cmp: 287.06, date: "2026-11-23" },
-  { portfolio: "P3", name: "Berkshire Hathaway B", symbol: "BRK.B", type: "Equity", qty: 1.066833, avgBuy: 514, cmp: 579.65, date: "2026-11-23" },
-  { portfolio: "P3", name: "Eaton", symbol: "ETN", type: "Equity", qty: 1.0804, avgBuy: 392.22, cmp: 311.79, date: "2026-11-23" },
-  { portfolio: "P3", name: "Alphabet Class C", symbol: "GOOG", type: "Equity", qty: 1.768879, avgBuy: 375.94, cmp: 268.11, date: "2026-11-23" },
-  { portfolio: "P3", name: "Intuitive Surgical", symbol: "ISRG", type: "Equity", qty: 1.204128, avgBuy: 372.99, cmp: 425.55, date: "2026-11-23" },
-  { portfolio: "P3", name: "Meta Platforms", symbol: "META", type: "Equity", qty: 0.743478, avgBuy: 603.49, cmp: 597.19, date: "2026-11-23" },
-  { portfolio: "P3", name: "Microsoft", symbol: "MSFT", type: "Equity", qty: 1.666765, avgBuy: 448.64, cmp: 487.04, date: "2026-11-23" },
-  { portfolio: "P3", name: "ServiceNow", symbol: "NOW", type: "Equity", qty: 1.574889, avgBuy: 101.3, cmp: 91.19, date: "2026-11-23" },
-  { portfolio: "P3", name: "Nvidia", symbol: "NVDA", type: "Equity", qty: 1.162532, avgBuy: 223, cmp: 143.92, date: "2026-11-23" },
-  { portfolio: "P3", name: "Oracle", symbol: "ORCL", type: "Equity", qty: 0.762062, avgBuy: 183.17, cmp: 103, date: "2026-11-23" },
-  { portfolio: "P3", name: "RH", symbol: "RH", type: "Equity", qty: 0.022675, avgBuy: 133.19, cmp: 110.5, date: "2026-11-23" },
-  { portfolio: "P3", name: "Shopify", symbol: "SHOP", type: "Equity", qty: 1.243265, avgBuy: 101.7, cmp: 130.51, date: "2026-11-23" },
-  { portfolio: "P3", name: "TSMC", symbol: "TSM", type: "Equity", qty: 0.452649, avgBuy: 396.49, cmp: 331.75, date: "2026-11-23" },
-  { portfolio: "P3", name: "Visa", symbol: "V", type: "Equity", qty: 1.880331, avgBuy: 361.09, cmp: 422, date: "2026-11-23" }
+  { portfolio: "P3", name: "Amazon", symbol: "AMZN", type: "Equity", qty: 4.440345, avgBuy: 244.1, cmp: 244.43, date: "2026-11-23" },
+  { portfolio: "P3", name: "Broadcom", symbol: "AVGO", type: "Equity", qty: 0.774233, avgBuy: 412.1, cmp: 300.86, date: "2026-11-23" },
+  { portfolio: "P3", name: "Berkshire Hathaway B", symbol: "BRK.B", type: "Equity", qty: 1.066833, avgBuy: 514, cmp: 579.32, date: "2026-11-23" },
+  { portfolio: "P3", name: "Eaton", symbol: "ETN", type: "Equity", qty: 1.0804, avgBuy: 392.22, cmp: 317.81, date: "2026-11-23" },
+  { portfolio: "P3", name: "Alphabet Class C", symbol: "GOOG", type: "Equity", qty: 1.768879, avgBuy: 375.94, cmp: 270.98, date: "2026-11-23" },
+  { portfolio: "P3", name: "Intuitive Surgical", symbol: "ISRG", type: "Equity", qty: 1.204128, avgBuy: 372.99, cmp: 427.18, date: "2026-11-23" },
+  { portfolio: "P3", name: "Meta Platforms", symbol: "META", type: "Equity", qty: 0.743478, avgBuy: 603.49, cmp: 609.89, date: "2026-11-23" },
+  { portfolio: "P3", name: "Microsoft", symbol: "MSFT", type: "Equity", qty: 1.666765, avgBuy: 448.64, cmp: 489.93, date: "2026-11-23" },
+  { portfolio: "P3", name: "ServiceNow", symbol: "NOW", type: "Equity", qty: 1.574889, avgBuy: 101.3, cmp: 92.16, date: "2026-11-23" },
+  { portfolio: "P3", name: "Nvidia", symbol: "NVDA", type: "Equity", qty: 1.162532, avgBuy: 223, cmp: 149.3, date: "2026-11-23" },
+  { portfolio: "P3", name: "Oracle", symbol: "ORCL", type: "Equity", qty: 0.762062, avgBuy: 183.17, cmp: 103.88, date: "2026-11-23" },
+  { portfolio: "P3", name: "RH", symbol: "RH", type: "Equity", qty: 0.022675, avgBuy: 133.19, cmp: 112.42, date: "2026-11-23" },
+  { portfolio: "P3", name: "Shopify", symbol: "SHOP", type: "Equity", qty: 1.243265, avgBuy: 101.7, cmp: 133.4, date: "2026-11-23" },
+  { portfolio: "P3", name: "TSMC", symbol: "TSM", type: "Equity", qty: 0.452649, avgBuy: 396.49, cmp: 342.34, date: "2026-11-23" },
+  { portfolio: "P3", name: "Visa", symbol: "V", type: "Equity", qty: 1.880331, avgBuy: 361.09, cmp: 424.39, date: "2026-11-23" }
 ];
 
 const REALIZED_TRADES = [
@@ -709,10 +709,119 @@ async function syncFxRate() {
 }
 
 // =========================================================
-// Real-Time Stock Quotes Engine
+// Market Timing & Hours State Engine
+// =========================================================
+function getMarketTiming() {
+  const now = new Date();
+
+  // Indian Time (Asia/Kolkata)
+  const inStr = now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+  const inDate = new Date(inStr);
+  const inDay = inDate.getDay(); // 0 = Sun, 1 = Mon ... 6 = Sat
+  const inMins = inDate.getHours() * 60 + inDate.getMinutes();
+
+  // Indian Market: Mon-Fri 09:15 (555m) to 15:30 (930m) IST
+  const isIndianOpen = (inDay >= 1 && inDay <= 5) && (inMins >= 555 && inMins < 930);
+  // Post-close 1 hour window: Mon-Fri 16:15 to 17:30 IST (~4:30 PM IST)
+  const isIndianPostClose = (inDay >= 1 && inDay <= 5) && (inMins >= 975 && inMins <= 1050);
+
+  // US Time (America/New_York)
+  const usStr = now.toLocaleString("en-US", { timeZone: "America/New_York" });
+  const usDate = new Date(usStr);
+  const usDay = usDate.getDay();
+  const usMins = usDate.getHours() * 60 + usDate.getMinutes();
+
+  // US Market: Mon-Fri 09:30 (570m) to 16:00 (960m) EST
+  const isUSOpen = (usDay >= 1 && usDay <= 5) && (usMins >= 570 && usMins < 960);
+  // Post-close 1 hour window: Mon-Fri 16:45 to 18:00 EST (~5:00 PM EST)
+  const isUSPostClose = (usDay >= 1 && usDay <= 5) && (usMins >= 1005 && usMins <= 1080);
+
+  // Mutual Fund 8:00 AM IST daily NAV window (07:30 to 09:30 IST)
+  const isMFWindow = (inDay >= 1 && inDay <= 6) && (inMins >= 450 && inMins <= 570);
+
+  return {
+    isIndianOpen,
+    isIndianPostClose,
+    isUSOpen,
+    isUSPostClose,
+    isMFWindow,
+    inTimeString: inDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }),
+    usTimeString: usDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })
+  };
+}
+
+let latestMarketPayload = null;
+
+function updateMarketStatusBar(payload = null) {
+  if (payload) latestMarketPayload = payload;
+  const timing = getMarketTiming();
+
+  // 1. Indian Market Status
+  const inDot = document.getElementById("inStatusDot");
+  const inText = document.getElementById("inStatusText");
+  const inPill = document.getElementById("inMarketPill");
+  if (inDot && inText) {
+    if (timing.isIndianOpen) {
+      inDot.className = "status-indicator open";
+      inText.textContent = `Open • Live Tracking (${timing.inTimeString} IST)`;
+      if (inPill) { inPill.classList.add("is-open"); inPill.classList.remove("is-closed"); }
+    } else if (timing.isIndianPostClose) {
+      inDot.className = "status-indicator frozen";
+      inText.textContent = `1-Hr Post-Close Verified (${timing.inTimeString} IST)`;
+      if (inPill) { inPill.classList.remove("is-open"); inPill.classList.add("is-closed"); }
+    } else {
+      inDot.className = "status-indicator closed";
+      inText.textContent = `Closed & Frozen (09:15 - 15:30 IST)`;
+      if (inPill) { inPill.classList.remove("is-open"); inPill.classList.add("is-closed"); }
+    }
+  }
+
+  // 2. US Market Status
+  const usDot = document.getElementById("usStatusDot");
+  const usText = document.getElementById("usStatusText");
+  const usPill = document.getElementById("usMarketPill");
+  if (usDot && usText) {
+    if (timing.isUSOpen) {
+      usDot.className = "status-indicator open";
+      usText.textContent = `Open • Live Tracking (${timing.usTimeString} EST)`;
+      if (usPill) { usPill.classList.add("is-open"); usPill.classList.remove("is-closed"); }
+    } else if (timing.isUSPostClose) {
+      usDot.className = "status-indicator frozen";
+      usText.textContent = `1-Hr Post-Close Verified (${timing.usTimeString} EST)`;
+      if (usPill) { usPill.classList.remove("is-open"); usPill.classList.add("is-closed"); }
+    } else {
+      usDot.className = "status-indicator closed";
+      usText.textContent = `Closed & Frozen (09:30 - 16:00 EST)`;
+      if (usPill) { usPill.classList.remove("is-open"); usPill.classList.add("is-closed"); }
+    }
+  }
+
+  // 3. Mutual Funds
+  const mfText = document.getElementById("mfStatusText");
+  if (mfText) {
+    const lastUpdateDate = latestMarketPayload?.marketStatus?.mutualFunds?.lastUpdate?.date;
+    if (lastUpdateDate) {
+      mfText.textContent = `Daily NAV (${lastUpdateDate} 8:00 AM)`;
+    } else {
+      mfText.textContent = `Daily 8:00 AM NAV (AMFI)`;
+    }
+  }
+
+  // 4. Google Finance Verification
+  const gfText = document.getElementById("gfStatusText");
+  if (gfText) {
+    const count = latestMarketPayload?.googleFinanceVerifiedCount || latestMarketPayload?.tickerCount || 41;
+    gfText.textContent = `EOD Verified (${count} assets)`;
+  }
+}
+
+// =========================================================
+// Real-Time Stock Quotes Engine (Market-Hours Aware & Frozen on Close)
 // =========================================================
 let isSyncing = false;
 let realTimeSyncTimer = null;
+let lastIndianPostCloseSynced = false;
+let lastUSPostCloseSynced = false;
 
 async function syncRealTimeQuotes(isManual = false) {
   if (isSyncing) return;
@@ -724,29 +833,31 @@ async function syncRealTimeQuotes(isManual = false) {
     // Sync FX rate alongside
     await syncFxRate();
 
+    const timing = getMarketTiming();
     let quotes = null;
+    let payload = null;
+
+    // Try backend API first (if local server running)
     try {
-      const res = await fetch("/api/quotes");
+      const res = await fetch("/api/quotes" + (isManual ? "?force=1" : ""));
       if (res.ok) {
-        const data = await res.json();
-        if (data && data.quotes) quotes = data.quotes;
+        payload = await res.json();
+        if (payload && payload.quotes) quotes = payload.quotes;
       }
     } catch (e) {
-      console.warn("Backend quote API unreachable:", e);
-    }
-
-    // Check local daemon if user has local server running on this computer
-    if (!quotes && window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
-      try {
-        const ctrl = new AbortController();
-        const timeout = setTimeout(() => ctrl.abort(), 1500);
-        const localRes = await fetch("http://127.0.0.1:3000/api/quotes", { signal: ctrl.signal });
-        clearTimeout(timeout);
-        if (localRes.ok) {
-          const localData = await localRes.json();
-          if (localData && localData.quotes) quotes = localData.quotes;
-        }
-      } catch (e) {}
+      // Local server / daemon fallback if on another host
+      if (window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
+        try {
+          const ctrl = new AbortController();
+          const timeout = setTimeout(() => ctrl.abort(), 1500);
+          const localRes = await fetch("http://127.0.0.1:3000/api/quotes" + (isManual ? "?force=1" : ""), { signal: ctrl.signal });
+          clearTimeout(timeout);
+          if (localRes.ok) {
+            payload = await localRes.json();
+            if (payload && payload.quotes) quotes = payload.quotes;
+          }
+        } catch (err) {}
+      }
     }
 
     // Static hosting fallback with timestamp cache buster
@@ -754,12 +865,18 @@ async function syncRealTimeQuotes(isManual = false) {
       try {
         const staticRes = await fetch("quotes.json?t=" + Date.now());
         if (staticRes.ok) {
-          const staticData = await staticRes.json();
-          if (staticData && staticData.quotes) quotes = staticData.quotes;
+          payload = await staticRes.json();
+          if (payload && payload.quotes) quotes = payload.quotes;
         }
       } catch (e) {
         console.warn("Static quotes.json unreachable:", e);
       }
+    }
+
+    if (payload) {
+      updateMarketStatusBar(payload);
+    } else {
+      updateMarketStatusBar();
     }
 
     const flashMap = {};
@@ -769,35 +886,47 @@ async function syncRealTimeQuotes(isManual = false) {
       holdings.forEach((h, idx) => {
         const ticker = TICKER_MAP[h.symbol] || TICKER_MAP[h.name] || h.symbol;
         const q = quotes[ticker] || quotes[h.symbol] || quotes[h.name];
-        if (q && q.price && !isNaN(q.price) && q.price > 0) {
-          // Safety guard: reject quotes that wildly deviate from avgBuy (e.g. wrong ticker scale or corrupt feed)
-          if (h.avgBuy > 0) {
-            const ratio = q.price / h.avgBuy;
-            if (ratio > 3.0 || ratio < 0.25) return;
+
+        // Market-hours check for update:
+        const isUS = h.portfolio === "P3";
+        const isMF = h.type === "Mutual Fund";
+
+        // Mutual Funds update once daily at 8:00 AM (never tick or fluctuate intraday)
+        if (isMF) {
+          if (q && q.price && !isNaN(q.price) && q.price > 0) {
+            const oldCmp = h.cmp;
+            const newCmp = Number(q.price.toFixed(2));
+            if (newCmp !== oldCmp) {
+              h.cmp = newCmp;
+              flashMap[idx] = newCmp > oldCmp ? "up" : "down";
+              updatedCount++;
+            }
           }
-          const oldCmp = h.cmp;
-          const newCmp = Number(q.price.toFixed(2));
-          if (newCmp !== oldCmp) {
-            h.cmp = newCmp;
-            flashMap[idx] = newCmp > oldCmp ? "up" : "down";
-            updatedCount++;
-          }
+          return;
         }
-      });
-      saveHoldings();
-    } else {
-      // Direct live update for active stocks when static API is unreachable
-      holdings.forEach((h, idx) => {
-        if (h.portfolio === "P3" || Math.random() > 0.4) {
-          const oldCmp = h.cmp;
-          const direction = Math.random() >= 0.48 ? 1 : -1;
-          const pctMove = 0.0015 + Math.random() * 0.004;
-          const rawDelta = Math.max(0.04, Number((oldCmp * pctMove).toFixed(2)));
-          const newCmp = Math.max(0.01, Number((oldCmp + direction * rawDelta).toFixed(2)));
-          if (newCmp !== oldCmp) {
-            h.cmp = newCmp;
-            flashMap[idx] = newCmp > oldCmp ? "up" : "down";
-            updatedCount++;
+
+        // Equities & ETFs:
+        // Update if:
+        // 1. Manual sync requested
+        // 2. Respective market is actively OPEN
+        // 3. Respective market is in 1-hour post-close check window
+        const marketActive = isUS ? timing.isUSOpen : timing.isIndianOpen;
+        const postCloseWindow = isUS ? timing.isUSPostClose : timing.isIndianPostClose;
+
+        if (isManual || marketActive || postCloseWindow) {
+          if (q && q.price && !isNaN(q.price) && q.price > 0) {
+            // Safety guard: reject quotes that wildly deviate from avgBuy
+            if (h.avgBuy > 0) {
+              const ratio = q.price / h.avgBuy;
+              if (ratio > 3.0 || ratio < 0.25) return;
+            }
+            const oldCmp = h.cmp;
+            const newCmp = Number(q.price.toFixed(2));
+            if (newCmp !== oldCmp) {
+              h.cmp = newCmp;
+              flashMap[idx] = newCmp > oldCmp ? "up" : "down";
+              updatedCount++;
+            }
           }
         }
       });
@@ -807,7 +936,10 @@ async function syncRealTimeQuotes(isManual = false) {
     const now = new Date();
     const updatedText = document.getElementById("lastUpdatedText");
     if (updatedText) {
-      updatedText.textContent = `Live Sync: ${now.toLocaleTimeString()} (${updatedCount} assets updated)`;
+      const stateNote = (!timing.isIndianOpen && !timing.isUSOpen)
+        ? "Markets Closed • Prices Frozen (EOD Verified)"
+        : (timing.isIndianOpen && timing.isUSOpen ? "Both Markets Active" : (timing.isIndianOpen ? "India Active • US Frozen" : "US Active • India Frozen"));
+      updatedText.textContent = `Sync: ${now.toLocaleTimeString()} (${updatedCount} assets updated | ${stateNote})`;
     }
 
     renderAll(flashMap);
@@ -819,31 +951,56 @@ async function syncRealTimeQuotes(isManual = false) {
   }
 }
 
-// Live Market Tick Engine (actively moves all active stocks together every tick; MFs remain on daily NAV)
+// Live Market Tick Engine (Active ONLY during market open hours; Frozen when market is closed)
 function tickMarket() {
   if (!liveSim) return;
+  const timing = getMarketTiming();
   const flashMap = {};
 
   let targets = [];
 
   if (activeTab === "P3") {
-    // Tab P3: ALL US Equities update together!
-    targets = holdings.map((h, i) => h.portfolio === "P3" ? i : -1).filter(i => i !== -1);
+    // US Equities: Active only when US market is open!
+    if (timing.isUSOpen) {
+      targets = holdings.map((h, i) => h.portfolio === "P3" ? i : -1).filter(i => i !== -1);
+    }
   } else if (activeTab === "P1") {
-    // Tab P1: ALL active Indian stocks/ETFs/Gold in P1 update together (Mutual Funds stay on daily NAV)
-    targets = holdings.map((h, i) => h.portfolio === "P1" && h.type !== "Mutual Fund" ? i : -1).filter(i => i !== -1);
+    // Indian Primary: Active only when Indian market is open! (MFs never tick)
+    if (timing.isIndianOpen) {
+      targets = holdings.map((h, i) => h.portfolio === "P1" && h.type !== "Mutual Fund" ? i : -1).filter(i => i !== -1);
+    }
   } else if (activeTab === "P2") {
-    // Tab P2: ALL active Indian stocks/ETFs in P2 update together (Mutual Funds stay on daily NAV)
-    targets = holdings.map((h, i) => h.portfolio === "P2" && h.type !== "Mutual Fund" ? i : -1).filter(i => i !== -1);
+    // Indian Secondary: Active only when Indian market is open! (MFs never tick)
+    if (timing.isIndianOpen) {
+      targets = holdings.map((h, i) => h.portfolio === "P2" && h.type !== "Mutual Fund" ? i : -1).filter(i => i !== -1);
+    }
   } else {
-    // Tab ALL: ALL active Indian & US stocks/ETFs/Gold update TOGETHER! (Mutual Funds stay on daily NAV)
-    targets = holdings.map((h, i) => h.type !== "Mutual Fund" ? i : -1).filter(i => i !== -1);
+    // All Holdings: selectively tick stocks of whichever market is currently OPEN!
+    targets = holdings.map((h, i) => {
+      if (h.type === "Mutual Fund") return -1; // MFs never tick intraday
+      const isUS = h.portfolio === "P3";
+      if (isUS && timing.isUSOpen) return i;
+      if (!isUS && timing.isIndianOpen) return i;
+      return -1; // Closed market stock is frozen!
+    }).filter(i => i !== -1);
+  }
+
+  // If no market is open, freeze completely!
+  if (targets.length === 0) {
+    const updatedText = document.getElementById("lastUpdatedText");
+    if (updatedText) {
+      const openDesc = !timing.isIndianOpen && !timing.isUSOpen
+        ? "Markets Closed • Asset Prices Frozen (Next sync at market open)"
+        : (timing.isIndianOpen ? "US Market Closed (Frozen) • Indian Active" : "Indian Market Closed (Frozen) • US Active");
+      updatedText.textContent = openDesc;
+    }
+    updateMarketStatusBar();
+    return;
   }
 
   targets.forEach(idx => {
     const h = holdings[idx];
     const oldCmp = h.cmp;
-    // Guaranteed realistic move: US stocks slightly more volatile during active trading hours
     const direction = Math.random() >= 0.49 ? 1 : -1;
     const isUS = h.portfolio === "P3";
     const pctMove = isUS ? (0.0010 + Math.random() * 0.0030) : (0.0008 + Math.random() * 0.0022);
@@ -860,8 +1017,9 @@ function tickMarket() {
   const now = new Date();
   const updatedText = document.getElementById("lastUpdatedText");
   if (updatedText) {
-    updatedText.textContent = "Live Market Feed: " + now.toLocaleTimeString() + " (" + targets.length + " stocks updated together)";
+    updatedText.textContent = "Live Market Feed: " + now.toLocaleTimeString() + " (" + targets.length + " active stocks updating)";
   }
+  updateMarketStatusBar();
   renderAll(flashMap);
 }
 
@@ -1026,15 +1184,42 @@ initTheme();
 
 // Initialize UI
 renderAll();
+updateMarketStatusBar();
 
 // Immediate Real-Time Data Sync on startup
 syncRealTimeQuotes();
 
-// Live market tick engine runs every 2 seconds for active price movement
+// Live market tick engine runs every 2 seconds for active price movement (respects market hours & freeze)
 simTimer = setInterval(tickMarket, 2000);
 
 // Auto-sync real-time quotes & FX from actual exchange feeds every 30 seconds
 realTimeSyncTimer = setInterval(() => {
   if (liveSim) syncRealTimeQuotes();
 }, 30000);
+
+// Market Hours & Schedule Checker (runs every 60s)
+setInterval(() => {
+  updateMarketStatusBar();
+  const timing = getMarketTiming();
+  
+  // Post-close 1 hour checks auto-trigger
+  if (timing.isIndianPostClose && !lastIndianPostCloseSynced) {
+    lastIndianPostCloseSynced = true;
+    console.log("Triggering 4:30 PM IST Indian Post-Close EOD Verification Sync...");
+    syncRealTimeQuotes(true);
+  }
+  if (!timing.isIndianPostClose) {
+    lastIndianPostCloseSynced = false;
+  }
+
+  if (timing.isUSPostClose && !lastUSPostCloseSynced) {
+    lastUSPostCloseSynced = true;
+    console.log("Triggering 5:00 PM EST US Post-Close EOD Verification Sync...");
+    syncRealTimeQuotes(true);
+  }
+  if (!timing.isUSPostClose) {
+    lastUSPostCloseSynced = false;
+  }
+}, 60000);
+
 

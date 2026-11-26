@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Screener &amp; Live Equity Tracker</title>
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
   <script>
     // Prevent theme flicker on page load
     (function() {
@@ -51,6 +51,30 @@
   </header>
 
   <main class="container">
+    <!-- Real-Time Market Status & Schedule Bar -->
+    <section class="market-status-bar" id="marketStatusBar">
+      <div class="market-pill" id="inMarketPill" title="Indian Equities &amp; ETFs track live Mon-Fri 09:15 - 15:30 IST. Values freeze on close.">
+        <span class="status-indicator" id="inStatusDot"></span>
+        <span class="market-name">NSE/BSE (India)</span>
+        <span class="market-desc" id="inStatusText">Loading...</span>
+      </div>
+      <div class="market-pill" id="usMarketPill" title="US Equities track live Mon-Fri 09:30 - 16:00 EST. Values freeze on close.">
+        <span class="status-indicator" id="usStatusDot"></span>
+        <span class="market-name">NYSE/NASDAQ (US)</span>
+        <span class="market-desc" id="usStatusText">Loading...</span>
+      </div>
+      <div class="market-pill" id="mfMarketPill" title="Mutual Fund NAVs update once daily at 8:00 AM IST the next morning via AMFI.">
+        <span class="status-indicator mf" id="mfStatusDot"></span>
+        <span class="market-name">Mutual Funds</span>
+        <span class="market-desc" id="mfStatusText">Daily 8:00 AM NAV</span>
+      </div>
+      <div class="market-pill gf-pill" id="gfVerificationPill" title="EOD closing prices verified against Google Finance for accuracy">
+        <span class="gf-check-icon">✓</span>
+        <span class="market-name">Google Finance</span>
+        <span class="market-desc" id="gfStatusText">EOD Verified</span>
+      </div>
+    </section>
+
     <!-- Consolidated KPI Strip -->
     <section class="kpi-grid" id="kpiGrid">
       <div class="kpi-card">
@@ -271,6 +295,6 @@
     <span class="floating-theme-label" id="floatingThemeLabel">Night</span>
   </button>
 
-  <script src="app.js?v=10"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>

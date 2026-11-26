@@ -203,6 +203,109 @@ body {
   gap: 18px;
 }
 
+/* Market Status & Hours Indicator Bar */
+.market-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  box-shadow: var(--shadow);
+}
+
+.market-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.market-pill .market-name {
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+
+.market-pill .market-desc {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.market-pill.is-open {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.market-pill.is-open .market-desc {
+  color: var(--pos);
+  font-weight: 600;
+}
+
+.market-pill.is-closed {
+  border-color: var(--border);
+}
+
+.market-pill.is-closed .market-desc {
+  color: var(--muted);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94a3b8;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-indicator.open {
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.status-indicator.frozen {
+  background: #f59e0b;
+}
+
+.status-indicator.closed {
+  background: #64748b;
+}
+
+.status-indicator.mf {
+  background: #3b82f6;
+}
+
+.gf-pill {
+  margin-left: auto;
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.gf-pill .gf-check-icon {
+  font-weight: 900;
+  color: var(--pos);
+  font-size: 13px;
+}
+
+.gf-pill .market-desc {
+  color: var(--pos);
+  font-weight: 600;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
