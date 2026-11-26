@@ -7,10 +7,7 @@
       "changePct": -3.12,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008888,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 244.43,
-      "lastVerifiedAt": 1795679009603
+      "timestamp": 1795716654855
     },
     "ISRG": {
       "ticker": "ISRG",
@@ -19,10 +16,7 @@
       "changePct": -1.68,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008813,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 427.18,
-      "lastVerifiedAt": 1795679013025
+      "timestamp": 1795716654894
     },
     "NOW": {
       "ticker": "NOW",
@@ -31,10 +25,7 @@
       "changePct": 0.46,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008824,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 92.16,
-      "lastVerifiedAt": 1795679014733
+      "timestamp": 1795716654870
     },
     "GOOG": {
       "ticker": "GOOG",
@@ -43,10 +34,7 @@
       "changePct": -2.02,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008816,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 270.98,
-      "lastVerifiedAt": 1795679012035
+      "timestamp": 1795716654892
     },
     "TATAGOLD.NS": {
       "ticker": "TATAGOLD.NS",
@@ -67,10 +55,7 @@
       "changePct": 0.82,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008820,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 133.4,
-      "lastVerifiedAt": 1795679017868
+      "timestamp": 1795716654857
     },
     "BRK-B": {
       "ticker": "BRK-B",
@@ -79,10 +64,7 @@
       "changePct": 0.37,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008853,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 579.32,
-      "lastVerifiedAt": 1795679010714
+      "timestamp": 1795716654863
     },
     "RH": {
       "ticker": "RH",
@@ -91,10 +73,7 @@
       "changePct": 8.67,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008821,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 112.42,
-      "lastVerifiedAt": 1795679016661
+      "timestamp": 1795716654915
     },
     "META": {
       "ticker": "META",
@@ -103,10 +82,7 @@
       "changePct": 3.4,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008826,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 609.89,
-      "lastVerifiedAt": 1795679013488
+      "timestamp": 1795716654869
     },
     "ABSLNN50ET.NS": {
       "ticker": "ABSLNN50ET.NS",
@@ -175,10 +151,7 @@
       "changePct": -0.07,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008818,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 300.86,
-      "lastVerifiedAt": 1795679010225
+      "timestamp": 1795716654874
     },
     "MSFT": {
       "ticker": "MSFT",
@@ -187,10 +160,7 @@
       "changePct": -1.25,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008825,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 489.93,
-      "lastVerifiedAt": 1795679014066
+      "timestamp": 1795716654904
     },
     "V": {
       "ticker": "V",
@@ -199,10 +169,7 @@
       "changePct": 1.83,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008830,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 424.39,
-      "lastVerifiedAt": 1795679019368
+      "timestamp": 1795716654868
     },
     "BANKBARODA.NS": {
       "ticker": "BANKBARODA.NS",
@@ -223,10 +190,7 @@
       "changePct": -3.91,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008874,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 149.3,
-      "lastVerifiedAt": 1795679015258
+      "timestamp": 1795716654871
     },
     "ROUTE.NS": {
       "ticker": "ROUTE.NS",
@@ -295,10 +259,7 @@
       "changePct": -5.13,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008827,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 103.88,
-      "lastVerifiedAt": 1795679015946
+      "timestamp": 1795716654865
     },
     "ETN": {
       "ticker": "ETN",
@@ -307,10 +268,7 @@
       "changePct": -0.46,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008843,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 317.81,
-      "lastVerifiedAt": 1795679011413
+      "timestamp": 1795716654893
     },
     "TSM": {
       "ticker": "TSM",
@@ -319,10 +277,7 @@
       "changePct": -1.96,
       "currency": "USD",
       "source": "Yahoo Finance (Primary)",
-      "timestamp": 1795679008829,
-      "verifiedGoogleFinance": true,
-      "googleFinancePrice": 342.34,
-      "lastVerifiedAt": 1795679018621
+      "timestamp": 1795716654899
     },
     "AMBUJACEM.NS": {
       "ticker": "AMBUJACEM.NS",
@@ -551,31 +506,27 @@
   },
   "marketStatus": {
     "indian": {
-      "isOpen": true,
-      "state": "OPEN",
-      "frozen": false,
-      "isPostClose1Hr": false,
-      "lastEodCheck": 1795679033747,
-      "time": "1:13:28 PM"
-    },
-    "us": {
       "isOpen": false,
       "state": "CLOSED",
       "frozen": true,
       "isPostClose1Hr": false,
       "lastEodCheck": 1795679033747,
-      "time": "2:43:28 AM"
+      "time": "11:40:54 PM"
+    },
+    "us": {
+      "isOpen": true,
+      "state": "OPEN",
+      "frozen": false,
+      "isPostClose1Hr": false,
+      "lastEodCheck": 1795679033747,
+      "time": "1:10:54 PM"
     },
     "mutualFunds": {
       "updateSchedule": "Daily 8:00 AM IST",
-      "lastUpdate": {
-        "timestamp": 1795679033746,
-        "date": "26/11/2026",
-        "count": 8
-      }
+      "lastUpdate": null
     }
   },
-  "timestamp": 1795679033747,
+  "timestamp": 1795716654915,
   "tickerCount": 49,
-  "googleFinanceVerifiedCount": 41
+  "googleFinanceVerifiedCount": 0
 }
