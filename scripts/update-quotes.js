@@ -463,10 +463,10 @@ async function main() {
         p3.map(fmtItem).join(',\n') + '\n];';
 
       appJs = appJs.replace(/const DEFAULT_HOLDINGS = \[[\s\S]*?\];/, newHoldingsBlock);
-      appJs = appJs.replace(/const STORAGE_KEY = "portfolio_screener_holdings_v\d+";/, 'const STORAGE_KEY = "portfolio_screener_holdings_v11";');
+      appJs = appJs.replace(/const STORAGE_KEY = "portfolio_screener_holdings_v\d+";/, 'const STORAGE_KEY = "portfolio_screener_holdings_v13";');
 
       fs.writeFileSync(appJsFile, appJs, 'utf8');
-      console.log(`Updated ${appJsFile} with STORAGE_KEY v11.`);
+      console.log(`Updated ${appJsFile} with STORAGE_KEY v13.`);
     }
   }
 }
