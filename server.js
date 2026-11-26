@@ -40,8 +40,6 @@ const TICKER_MAP = {
   "V": "V",
 
   // Indian Stocks & ETFs (P1 & P2)
-  "INF277KA1976": "TATAGOLD.NS",
-  "TATAGOLD ETF": "TATAGOLD.NS",
   "INF209KB16D7": "ABSLNN50ET.NS",
   "ABSL NIFTY NXT50 ETF": "ABSLNN50ET.NS",
   "INE364U01010": "ADANIGREEN.NS",
@@ -56,6 +54,8 @@ const TICKER_MAP = {
   "BANK OF BARODA-EQ": "BANKBARODA.NS",
   "INE596I01020": "CAMS.NS",
   "COMPUTER AGE-EQ2/-": "CAMS.NS",
+  "INF740KA1WU9": "FLEXIADD.NS",
+  "DSP N500FQ30 ETF": "FLEXIADD.NS",
   "INE040A01034": "HDFCBANK.NS",
   "HDFC BANK-EQ1/-": "HDFCBANK.NS",
   "INF109KC15I8": "BANKIETF.NS",
@@ -66,8 +66,8 @@ const TICKER_MAP = {
   "INFOSYS LTD-EQ 5/-": "INFY.NS",
   "INE237A01036": "KOTAKBANK.NS",
   "KOTAK MAHINDRA-EQ1/-": "KOTAKBANK.NS",
-  "INF174KA1GC5": "ITETF.NS",
-  "KOTAK NIF IT ETF": "ITETF.NS",
+  "INF174KA1GC5": "IT.NS",
+  "KOTAK NIF IT ETF": "IT.NS",
   "INE733E01010": "NTPC.NS",
   "NTPC LTD": "NTPC.NS",
   "INE262H01021": "PERSISTENT.NS",
@@ -91,10 +91,13 @@ const TICKER_MAP = {
   "INE670K01029": "LODHA.NS",
   "LODHA DEVELOP-EQ10/-": "LODHA.NS",
   "INE299N01021": "WAAREERTL.NS",
-  "WAAREE RENEW-EQ2/-": "WAAREERTL.NS"
+  "WAAREE RENEW-EQ2/-": "WAAREERTL.NS",
+  "INF200K01RP8": "INF200K01RP8",
+  "SBI GOLD DP GR": "INF200K01RP8"
 };
 
 const GOOGLE_FINANCE_MAP = {
+  // US Equities
   "AMZN": { s: "AMZN", e: "NASDAQ" },
   "AVGO": { s: "AVGO", e: "NASDAQ" },
   "BRK-B": { s: "BRK.B", e: "NYSE" },
@@ -111,7 +114,7 @@ const GOOGLE_FINANCE_MAP = {
   "TSM": { s: "TSM", e: "NYSE" },
   "V": { s: "V", e: "NYSE" },
 
-  "TATAGOLD.NS": { s: "TATAGOLD", e: "NSE" },
+  // Indian Equities & ETFs
   "ABSLNN50ET.NS": { s: "ABSLNN50ET", e: "NSE" },
   "ADANIGREEN.NS": { s: "ADANIGREEN", e: "NSE" },
   "AMBUJACEM.NS": { s: "AMBUJACEM", e: "NSE" },
@@ -119,17 +122,18 @@ const GOOGLE_FINANCE_MAP = {
   "BAJFINANCE.NS": { s: "BAJFINANCE", e: "NSE" },
   "BANKBARODA.NS": { s: "BANKBARODA", e: "NSE" },
   "CAMS.NS": { s: "CAMS", e: "NSE" },
+  "FLEXIADD.NS": { s: "FLEXIADD", e: "NSE" },
   "HDFCBANK.NS": { s: "HDFCBANK", e: "NSE" },
   "BANKIETF.NS": { s: "BANKIETF", e: "NSE" },
   "NIF100IETF.NS": { s: "NIF100IETF", e: "NSE" },
   "INFY.NS": { s: "INFY", e: "NSE" },
   "KOTAKBANK.NS": { s: "KOTAKBANK", e: "NSE" },
-  "ITETF.NS": { s: "ITETF", e: "NSE" },
+  "IT.NS": { s: "IT", e: "NSE" },
   "NTPC.NS": { s: "NTPC", e: "NSE" },
   "PERSISTENT.NS": { s: "PERSISTENT", e: "NSE" },
   "PVRINOX.NS": { s: "PVRINOX", e: "NSE" },
   "ROUTE.NS": { s: "ROUTE", e: "NSE" },
-  "SETFNIF50.NS": { s: "SBINIFTY50", e: "NSE" },
+  "SETFNIF50.NS": { s: "SETFNIF50", e: "NSE" },
   "SUZLON.NS": { s: "SUZLON", e: "NSE" },
   "TCS.NS": { s: "TCS", e: "NSE" },
   "VBL.NS": { s: "VBL", e: "NSE" },
@@ -147,7 +151,8 @@ const MF_ISINS = [
   "INF966L01986",
   "INF843K01KK1",
   "INF179K01UT0",
-  "INF204K01XF9"
+  "INF204K01XF9",
+  "INF200K01RP8"
 ];
 
 // Helper: Calculate Market Timing & Status
@@ -156,7 +161,7 @@ function getMarketTiming() {
 
   const inStr = now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
   const inDate = new Date(inStr);
-  const inDay = inDate.getDay();
+  const inDay = inDate.getDay(); // 0 = Sun, 1 = Mon ... 6 = Sat
   const inMins = inDate.getHours() * 60 + inDate.getMinutes();
 
   // Indian Market: Mon-Fri 09:15 to 15:30 IST
@@ -199,24 +204,24 @@ async function fetchLiveFx() {
     return cachedFx;
   }
   try {
-    const res = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-    if (res.ok) {
-      const data = await res.json();
-      if (data.rates && data.rates.INR) {
-        cachedFx = { rate: Number(data.rates.INR.toFixed(2)), timestamp: now, source: 'exchangerate-api' };
-        return cachedFx;
-      }
-    }
-  } catch (err) {
-    console.warn('FX API primary failed:', err.message);
-  }
-
-  try {
     const res = await fetch('https://open.er-api.com/v6/latest/USD');
     if (res.ok) {
       const data = await res.json();
       if (data.rates && data.rates.INR) {
         cachedFx = { rate: Number(data.rates.INR.toFixed(2)), timestamp: now, source: 'open.er-api' };
+        return cachedFx;
+      }
+    }
+  } catch (err) {
+    console.warn('FX API open.er-api failed:', err.message);
+  }
+
+  try {
+    const res = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.rates && data.rates.INR) {
+        cachedFx = { rate: Number(data.rates.INR.toFixed(2)), timestamp: now, source: 'exchangerate-api' };
         return cachedFx;
       }
     }
@@ -460,6 +465,18 @@ const server = http.createServer(async (req, res) => {
     });
     res.end(content);
   });
+});
+
+server.on('error', (err) => {
+  console.error('Server error:', err.message);
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err.message);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled Rejection:', reason);
 });
 
 server.listen(PORT, '0.0.0.0', () => {
