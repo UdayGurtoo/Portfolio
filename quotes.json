@@ -554,9 +554,9 @@
       "isOpen": false,
       "state": "CLOSED",
       "frozen": true,
-      "isPostClose1Hr": true,
+      "isPostClose1Hr": false,
       "lastEodCheck": 1795778205504,
-      "time": "4:46:33 PM"
+      "time": "7:02:23 PM"
     },
     "us": {
       "isOpen": false,
@@ -564,14 +564,14 @@
       "frozen": true,
       "isPostClose1Hr": false,
       "lastEodCheck": 1795764260293,
-      "time": "6:16:33 AM"
+      "time": "8:32:23 AM"
     },
     "mutualFunds": {
       "updateSchedule": "Daily 8:00 AM IST",
       "lastUpdate": null
     }
   },
-  "timestamp": 1795778205504,
+  "timestamp": 1795786343314,
   "tickerCount": 49,
-  "googleFinanceVerifiedCount": 26
+  "googleFinanceVerifiedCount": 0
 }
