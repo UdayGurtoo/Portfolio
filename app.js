@@ -1,4 +1,4 @@
-const STORAGE_KEY = "portfolio_screener_holdings_v13";
+const STORAGE_KEY = "portfolio_screener_holdings_v15";
 
 const DEFAULT_HOLDINGS = [
   // Portfolio 1: Indian Primary (Upstox 7MALEK - Urvashi Gurtoo)
@@ -83,11 +83,24 @@ let liveSim = true;
 let simTimer = null;
 
 function loadHoldings() {
+  // Purge any legacy storage keys to prevent cache collisions
+  try {
+    ["portfolio_screener_holdings_v1", "portfolio_screener_holdings_v2", "portfolio_screener_holdings_v10", "portfolio_screener_holdings_v11", "portfolio_screener_holdings_v12", "portfolio_screener_holdings_v13", "portfolio_screener_holdings_v14"].forEach(k => localStorage.removeItem(k));
+  } catch (e) {}
+
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      // Validate saved data: must be an array of at least 55 holdings
+      // and must NOT contain legacy 17-holding test entries (like NMDC or 6SAZWP)
+      const isLegacy = parsed.some(h => h.name?.includes("NMDC") || h.symbol === "INE584A01023");
+      if (Array.isArray(parsed) && parsed.length >= 55 && !isLegacy) {
+        return parsed;
+      } else {
+        console.warn("Detected outdated or incomplete holdings in localStorage. Restoring full 60 holdings baseline.");
+        localStorage.removeItem(STORAGE_KEY);
+      }
     }
   } catch (e) {}
   return JSON.parse(JSON.stringify(DEFAULT_HOLDINGS));
@@ -668,16 +681,20 @@ function toggleTheme() {
 async function syncFxRate() {
   try {
     let rate = null;
-    // 1. Try local server API
-    try {
-      const res = await fetch("/api/fx");
-      if (res.ok) {
-        const data = await res.json();
-        if (data && data.rate) rate = data.rate;
-      }
-    } catch (e) {}
+    const isLocalHost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 
-    // 2. Direct browser fallback
+    // 1. Try local server API if running on localhost
+    if (isLocalHost) {
+      try {
+        const res = await fetch("/api/fx");
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.rate) rate = data.rate;
+        }
+      } catch (e) {}
+    }
+
+    // 2. Direct browser fallback (used on GitHub Pages and static deployments)
     if (!rate) {
       try {
         const res = await fetch("https://open.er-api.com/v6/latest/USD");
@@ -837,30 +854,20 @@ async function syncRealTimeQuotes(isManual = false) {
     let quotes = null;
     let payload = null;
 
-    // Try backend API first (if local server running)
-    try {
-      const res = await fetch("/api/quotes" + (isManual ? "?force=1" : ""));
-      if (res.ok) {
-        payload = await res.json();
-        if (payload && payload.quotes) quotes = payload.quotes;
-      }
-    } catch (e) {
-      // Local server / daemon fallback if on another host
-      if (window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
-        try {
-          const ctrl = new AbortController();
-          const timeout = setTimeout(() => ctrl.abort(), 1500);
-          const localRes = await fetch("http://127.0.0.1:3000/api/quotes" + (isManual ? "?force=1" : ""), { signal: ctrl.signal });
-          clearTimeout(timeout);
-          if (localRes.ok) {
-            payload = await localRes.json();
-            if (payload && payload.quotes) quotes = payload.quotes;
-          }
-        } catch (err) {}
-      }
+    const isLocalHost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+    // 1. Try local server API if running on localhost
+    if (isLocalHost) {
+      try {
+        const res = await fetch("/api/quotes" + (isManual ? "?force=1" : ""));
+        if (res.ok) {
+          payload = await res.json();
+          if (payload && payload.quotes) quotes = payload.quotes;
+        }
+      } catch (e) {}
     }
 
-    // Static hosting fallback with timestamp cache buster
+    // 2. Static hosting fallback (GitHub Pages or static server) with timestamp cache buster
     if (!quotes) {
       try {
         const staticRes = await fetch("quotes.json?t=" + Date.now());
