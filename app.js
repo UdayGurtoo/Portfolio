@@ -51,21 +51,21 @@ const DEFAULT_HOLDINGS = [
   { portfolio: "P2", name: "WAAREE RENEW-EQ2/-", symbol: "INE299N01021", type: "Equity", qty: 17, avgBuy: 1020, cmp: 825.7, date: "2025-09-08" },
 
   // Portfolio 3: US Equities (INDmoney Global 258461814) - Live Real-Time Market Baseline
-  { portfolio: "P3", name: "Amazon", symbol: "AMZN", type: "Equity", qty: 4.440345, avgBuy: 244.1, cmp: 244.43, date: "2026-11-23" },
-  { portfolio: "P3", name: "Broadcom", symbol: "AVGO", type: "Equity", qty: 0.774233, avgBuy: 412.1, cmp: 300.86, date: "2026-11-23" },
-  { portfolio: "P3", name: "Berkshire Hathaway B", symbol: "BRK.B", type: "Equity", qty: 1.066833, avgBuy: 514, cmp: 579.32, date: "2026-11-23" },
-  { portfolio: "P3", name: "Eaton", symbol: "ETN", type: "Equity", qty: 1.0804, avgBuy: 392.22, cmp: 317.81, date: "2026-11-23" },
-  { portfolio: "P3", name: "Alphabet Class C", symbol: "GOOG", type: "Equity", qty: 1.768879, avgBuy: 375.94, cmp: 270.98, date: "2026-11-23" },
-  { portfolio: "P3", name: "Intuitive Surgical", symbol: "ISRG", type: "Equity", qty: 1.204128, avgBuy: 372.99, cmp: 427.18, date: "2026-11-23" },
-  { portfolio: "P3", name: "Meta Platforms", symbol: "META", type: "Equity", qty: 0.743478, avgBuy: 603.49, cmp: 609.89, date: "2026-11-23" },
-  { portfolio: "P3", name: "Microsoft", symbol: "MSFT", type: "Equity", qty: 1.666765, avgBuy: 448.64, cmp: 489.93, date: "2026-11-23" },
-  { portfolio: "P3", name: "ServiceNow", symbol: "NOW", type: "Equity", qty: 1.574889, avgBuy: 101.3, cmp: 92.16, date: "2026-11-23" },
-  { portfolio: "P3", name: "Nvidia", symbol: "NVDA", type: "Equity", qty: 1.162532, avgBuy: 223, cmp: 149.3, date: "2026-11-23" },
-  { portfolio: "P3", name: "Oracle", symbol: "ORCL", type: "Equity", qty: 0.762062, avgBuy: 183.17, cmp: 103.88, date: "2026-11-23" },
-  { portfolio: "P3", name: "RH", symbol: "RH", type: "Equity", qty: 0.022675, avgBuy: 133.19, cmp: 112.42, date: "2026-11-23" },
-  { portfolio: "P3", name: "Shopify", symbol: "SHOP", type: "Equity", qty: 1.243265, avgBuy: 101.7, cmp: 133.4, date: "2026-11-23" },
-  { portfolio: "P3", name: "TSMC", symbol: "TSM", type: "Equity", qty: 0.452649, avgBuy: 396.49, cmp: 342.34, date: "2026-11-23" },
-  { portfolio: "P3", name: "Visa", symbol: "V", type: "Equity", qty: 1.880331, avgBuy: 361.09, cmp: 424.39, date: "2026-11-23" }
+  { portfolio: "P3", name: "Amazon", symbol: "AMZN", type: "Equity", qty: 4.440345, avgBuy: 244.1, cmp: 254.12, date: "2026-11-23" },
+  { portfolio: "P3", name: "Broadcom", symbol: "AVGO", type: "Equity", qty: 0.774233, avgBuy: 412.1, cmp: 312.34, date: "2026-11-23" },
+  { portfolio: "P3", name: "Berkshire Hathaway B", symbol: "BRK.B", type: "Equity", qty: 1.066833, avgBuy: 514, cmp: 580.79, date: "2026-11-23" },
+  { portfolio: "P3", name: "Eaton", symbol: "ETN", type: "Equity", qty: 1.0804, avgBuy: 392.22, cmp: 325.92, date: "2026-11-23" },
+  { portfolio: "P3", name: "Alphabet Class C", symbol: "GOOG", type: "Equity", qty: 1.768879, avgBuy: 375.94, cmp: 272.44, date: "2026-11-23" },
+  { portfolio: "P3", name: "Intuitive Surgical", symbol: "ISRG", type: "Equity", qty: 1.204128, avgBuy: 372.99, cmp: 430.18, date: "2026-11-23" },
+  { portfolio: "P3", name: "Meta Platforms", symbol: "META", type: "Equity", qty: 0.743478, avgBuy: 603.49, cmp: 628.96, date: "2026-11-23" },
+  { portfolio: "P3", name: "Microsoft", symbol: "MSFT", type: "Equity", qty: 1.666765, avgBuy: 448.64, cmp: 492.85, date: "2026-11-23" },
+  { portfolio: "P3", name: "ServiceNow", symbol: "NOW", type: "Equity", qty: 1.574889, avgBuy: 101.3, cmp: 92.8, date: "2026-11-23" },
+  { portfolio: "P3", name: "Nvidia", symbol: "NVDA", type: "Equity", qty: 1.162532, avgBuy: 223, cmp: 150.49, date: "2026-11-23" },
+  { portfolio: "P3", name: "Oracle", symbol: "ORCL", type: "Equity", qty: 0.762062, avgBuy: 183.17, cmp: 107.13, date: "2026-11-23" },
+  { portfolio: "P3", name: "RH", symbol: "RH", type: "Equity", qty: 0.022675, avgBuy: 133.19, cmp: 111.1, date: "2026-11-23" },
+  { portfolio: "P3", name: "Shopify", symbol: "SHOP", type: "Equity", qty: 1.243265, avgBuy: 101.7, cmp: 141.78, date: "2026-11-23" },
+  { portfolio: "P3", name: "TSMC", symbol: "TSM", type: "Equity", qty: 0.452649, avgBuy: 396.49, cmp: 353.34, date: "2026-11-23" },
+  { portfolio: "P3", name: "Visa", symbol: "V", type: "Equity", qty: 1.880331, avgBuy: 361.09, cmp: 429.56, date: "2026-11-23" }
 ];
 
 const REALIZED_TRADES = [
