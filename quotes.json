@@ -493,60 +493,60 @@
       "lastVerifiedAt": 1795778195188
     },
     "INF846K019W9": {
-      "price": 10.6004,
-      "navDate": "26-Nov-2026",
+      "price": 10.5401,
+      "navDate": "27-Nov-2026",
       "currency": "INR",
       "source": "AMFI (Official 8:00 AM Update)",
-      "timestamp": 1795764260291
+      "timestamp": 1795837263897
     },
     "INF740K01OK1": {
-      "price": 165.601,
-      "navDate": "26-Nov-2026",
+      "price": 164.129,
+      "navDate": "27-Nov-2026",
       "currency": "INR",
       "source": "AMFI (Official 8:00 AM Update)",
-      "timestamp": 1795764260291
+      "timestamp": 1795837263898
     },
     "INF179KC1BS5": {
-      "price": 20.32,
-      "navDate": "26-Nov-2026",
+      "price": 20.239,
+      "navDate": "27-Nov-2026",
       "currency": "INR",
       "source": "AMFI (Official 8:00 AM Update)",
-      "timestamp": 1795764260291
+      "timestamp": 1795837263898
     },
     "INF966L01911": {
-      "price": 122.5944,
-      "navDate": "26-Nov-2026",
+      "price": 121.2195,
+      "navDate": "27-Nov-2026",
       "currency": "INR",
       "source": "AMFI (Official 8:00 AM Update)",
-      "timestamp": 1795764260291
+      "timestamp": 1795837263898
     },
     "INF966L01986": {
-      "price": 470.3626,
-      "navDate": "26-Nov-2026",
+      "price": 467.6882,
+      "navDate": "27-Nov-2026",
       "currency": "INR",
       "source": "AMFI (Official 8:00 AM Update)",
-      "timestamp": 1795764260291
+      "timestamp": 1795837263898
     },
     "INF843K01KK1": {
-      "price": 47.782,
-      "navDate": "26-Nov-2026",
+      "price": 47.52,
+      "navDate": "27-Nov-2026",
       "currency": "INR",
       "source": "AMFI (Official 8:00 AM Update)",
-      "timestamp": 1795764260291
+      "timestamp": 1795837263898
     },
     "INF179K01UT0": {
-      "price": 2429.142,
-      "navDate": "26-Nov-2026",
+      "price": 2410.362,
+      "navDate": "27-Nov-2026",
       "currency": "INR",
       "source": "AMFI (Official 8:00 AM Update)",
-      "timestamp": 1795764260292
+      "timestamp": 1795837263898
     },
     "INF204K01XF9": {
-      "price": 339.1608,
-      "navDate": "26-Nov-2026",
+      "price": 337.5626,
+      "navDate": "27-Nov-2026",
       "currency": "INR",
       "source": "AMFI (Official 8:00 AM Update)",
-      "timestamp": 1795764260292
+      "timestamp": 1795837263899
     }
   },
   "marketStatus": {
@@ -556,22 +556,26 @@
       "frozen": true,
       "isPostClose1Hr": false,
       "lastEodCheck": 1795778205504,
-      "time": "3:58:22 AM"
+      "time": "9:11:00 AM"
     },
     "us": {
       "isOpen": false,
       "state": "CLOSED",
       "frozen": true,
-      "isPostClose1Hr": true,
+      "isPostClose1Hr": false,
       "lastEodCheck": 1795818508124,
-      "time": "5:28:22 PM"
+      "time": "10:41:00 PM"
     },
     "mutualFunds": {
       "updateSchedule": "Daily 8:00 AM IST",
-      "lastUpdate": null
+      "lastUpdate": {
+        "timestamp": 1795837263899,
+        "date": "28/11/2026",
+        "count": 8
+      }
     }
   },
-  "timestamp": 1795818508124,
+  "timestamp": 1795837263899,
   "tickerCount": 49,
-  "googleFinanceVerifiedCount": 15
+  "googleFinanceVerifiedCount": 0
 }
